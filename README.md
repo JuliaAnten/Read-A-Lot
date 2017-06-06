@@ -18,7 +18,7 @@ The app will consist of a start screen on which the game will be explained. Ther
 
 There could be a few possible difficulties with this app. The first one could be how to check if an answer is correct. Another one is what happens when the API does not longer give any information. Lastly there needs to be something like a filter to make sure there will be no very obscure books that nobody know. 
 
-I couldn't really find an app that does the same, but there are some sites. Like [this] (https://www.sporcle.com/games/getschooled/guess-the-book-by-the-plot) one. It gives more answer options than three and the plots are very limited and there is a limited amount of questions, but the idea is the same. 
+I couldn't really find an app that does the same, but there are some sites. Like [this] (https://www.sporcle.com/games/getschooled/guess-the-book-by-the-plot/) one. It gives more answer options than three and the plots are very limited and there is a limited amount of questions, but the idea is the same. 
 
 The start screen and the game screen would be part of the minimum viable product. The highscores could be left out. Other optionals idea's are making different difficulties or switching the idea around, giving a title and let users guess the plot.
 
