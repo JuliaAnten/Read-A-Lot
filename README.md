@@ -24,4 +24,4 @@ The start screen and the game screen would be part of the minimum viable product
 
 ![Schets](doc/Schetsen.jpg)
 
-######Image from [rbmm](http://rbmm.com/work/galahad-books-logo/)
+Image from [rbmm](http://rbmm.com/work/galahad-books-logo/)
