@@ -1,10 +1,11 @@
 package com.example.julia.read_a_lot;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
 public class GameActivity extends AppCompatActivity {
 
@@ -14,6 +15,10 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
     }
 
+
+    public void onNextClicked(View view){
+
+    }
     /**
      * Creates high score button.
      */
