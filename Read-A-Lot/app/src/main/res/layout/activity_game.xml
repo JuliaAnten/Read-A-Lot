@@ -77,7 +77,8 @@
         app:srcCompat="@drawable/arrow"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="320dp"
-        android:contentDescription="@string/go" />
+        android:contentDescription="@string/go"
+        android:onClick="onNextClicked"/>
 
     <TextView
         android:id="@+id/streakView"

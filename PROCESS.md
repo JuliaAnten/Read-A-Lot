@@ -12,7 +12,7 @@
 ![functions](doc/First idea diagram.jpg)
 
 # Day 3 - 8 juni
-- Completed the dprototype
+- Completed the prototype
 - Completed DESIGN.md and the diagram
 
 # Day 4 - 9 juni
@@ -21,4 +21,5 @@
 
 # Day 5 - 12 juni
 - Made planning for rest of the week
-- Edited the design in android studio and DESING.md
+- Edited the design in android studio and DESING.md 
+- Google books API can't request random books, so I will add a file with approx. 100 best sold book titles from [goodreads](http://www.goodreads.com/list/show/33934.Best_Selling_Books_of_All_Time).

@@ -1,5 +1,7 @@
 ![logo](doc/textLogo.png)
 
+[![BCH compliance](https://bettercodehub.com/edge/badge/JuliaAnten/Read-A-Lot?branch=master)](https://bettercodehub.com/)
+
 Let's guess the book title! <br>
 Are you bored and would like to test your knowledge about books. Than this is the perfect app for you!
 

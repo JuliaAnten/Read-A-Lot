@@ -62,7 +62,7 @@
         android:id="@+id/textLogoView"
         android:layout_width="335dp"
         android:layout_height="114dp"
-        app:srcCompat="@drawable/textLogo"
+        app:srcCompat="@drawable/textlogo"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/logoView"
