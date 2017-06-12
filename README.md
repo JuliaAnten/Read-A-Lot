@@ -1,6 +1,4 @@
-# Read-A-Lot
-
-![logo](doc/Logo.png)
+![logo](doc/textLogo.png)
 
 Let's guess the book title! <br>
 Are you bored and would like to test your knowledge about books. Than this is the perfect app for you!

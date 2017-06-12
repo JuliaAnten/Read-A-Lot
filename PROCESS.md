@@ -1,3 +1,4 @@
+![logo](doc/textLogo.png)
 #Process Book
 
 # Day 1 - 6 juni
@@ -20,4 +21,4 @@
 
 # Day 5 - 12 juni
 - Made planning for rest of the week
-- Drank coffee
+- Edited the design in android studio and DESING.md

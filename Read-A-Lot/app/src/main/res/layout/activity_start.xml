@@ -13,13 +13,13 @@
         android:layout_height="416dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="1dp"
         android:contentDescription="@string/logo"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo"
-        app:layout_constraintHorizontal_bias="0.0" />
+        app:layout_constraintHorizontal_bias="0.157"
+        app:layout_constraintTop_toTopOf="@+id/textLogoView"
+        android:layout_marginTop="50dp" />
 
     <TextView
         android:id="@+id/explanationView"
@@ -57,5 +57,21 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logoView"
         app:layout_constraintVertical_bias="0.733" />
+
+    <ImageView
+        android:id="@+id/textLogoView"
+        android:layout_width="335dp"
+        android:layout_height="114dp"
+        app:srcCompat="@drawable/textLogo"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/logoView"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintVertical_bias="0.022"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:contentDescription="@string/logo" />
 
 </android.support.constraint.ConstraintLayout>
