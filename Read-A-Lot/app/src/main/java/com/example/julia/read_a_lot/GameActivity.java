@@ -19,22 +19,24 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        titles = getResources().getText(R.string.booktitles).toString().split(",");
+        titles = getResources().getText(R.string.booktitles).toString().split("=");
         bookSearch();
     }
 
 
+    /**
+     * Sends a request to the AsyncTask to request a book.
+     */
     public String bookSearch(){
-        String selected = "";
+        String selectedBook = "";
         Random rand = new Random();
 
-        // Get three book titles
-        for(int i = 0; i < 3; i++){
-            selected += titles[rand.nextInt(105)];
-            selected += ",";
-        }
-        Log.d("log",selected);
-        return selected;
+        // Get book title
+        selectedBook = titles[rand.nextInt(103)];
+        Log.d("log",selectedBook);
+        BookAsyncTask asyncTask = new BookAsyncTask(selectedBook);
+
+        return selectedBook;
 
 
     }

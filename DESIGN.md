@@ -10,7 +10,7 @@ Minor Programmeren UvA
 
 The document below explains the different classes and formulas, that will be used in the app. 
 ![diagram](doc/diagram.jpg)
-###Functions
+### Functions
 1. Explains and sends user to the game
 	- goToGame
 2. Lets users play the game
@@ -42,7 +42,7 @@ Trophee. Shows 3 highest scores
 I will use the Google Books API to get information about... books (surprise). 
 <https://developers.google.com/books/>
 
-###Screenshots from app design
+### Screenshots from app design
 ![start](doc/StartActivity.png)
 ![game](doc/GameActivity.png)
 

@@ -1,5 +1,5 @@
 ![logo](doc/textLogo.png)
-#Process Book
+# Process Book
 
 # Day 1 - 6 juni
 - Drew initial sketches of the design
@@ -18,8 +18,12 @@
 # Day 4 - 9 juni
 - Presented my ideas
 - Added ideas from presentations to README.md
+<br>
 
+## Week 2
 # Day 5 - 12 juni
 - Made planning for rest of the week
 - Edited the design in android studio and DESING.md 
 - Google books API can't request random books, so I will add a file with approx. 100 best sold book titles from [goodreads](http://www.goodreads.com/list/show/33934.Best_Selling_Books_of_All_Time).
+
+

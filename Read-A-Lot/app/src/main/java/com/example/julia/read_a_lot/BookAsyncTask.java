@@ -7,8 +7,15 @@ import android.os.AsyncTask;
  */
 
 public class BookAsyncTask extends AsyncTask<String, Void, String> {
+
+    String selectedBook;
+
+    public BookAsyncTask(String main){
+        this.selectedBook = main;
+    }
+
     @Override
     protected String doInBackground(String... params) {
-        return null;
+        return HttpRequestHelper.downloadFromServer(params);
     }
 }
