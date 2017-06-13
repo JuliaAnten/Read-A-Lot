@@ -8,11 +8,16 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.Random;
 
 public class GameActivity extends AppCompatActivity {
 
     String titles[];
+    JSONObject bookObject;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,17 +32,36 @@ public class GameActivity extends AppCompatActivity {
     /**
      * Sends a request to the AsyncTask to request a book.
      */
-    public String bookSearch(){
+    public void bookSearch(){
         String selectedBook = "";
         Random rand = new Random();
 
         // Get book title
         selectedBook = titles[rand.nextInt(103)];
         Log.d("log",selectedBook);
-        BookAsyncTask asyncTask = new BookAsyncTask(selectedBook);
+        BookAsyncTask asyncTask = new BookAsyncTask(this);
+        asyncTask.execute(selectedBook);
 
-        return selectedBook;
+    }
 
+
+    public void handleBookInfo(String bookInfo) {
+
+        String description = "";
+
+        JSONArray items = null;
+        JSONArray volumeInfo = null;
+        try {
+            bookObject = new JSONObject(bookInfo);
+            items = bookObject.getJSONArray("items");
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        Log.d("log", String.valueOf(items));
+        Log.d("log", "4");
 
     }
 
