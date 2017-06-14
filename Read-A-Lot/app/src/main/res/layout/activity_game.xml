@@ -28,7 +28,8 @@
             android:text="@string/answer1"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="58dp" />
+            tools:layout_editor_absoluteY="58dp"
+            android:onClick="onAnswerClicked"/>
 
         <Button
             android:id="@+id/answer3"
@@ -38,7 +39,8 @@
             android:text="@string/answer3"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             tools:layout_editor_absoluteX="66dp"
-            tools:layout_editor_absoluteY="247dp" />
+            tools:layout_editor_absoluteY="247dp"
+            android:onClick="onAnswerClicked"/>
 
         <Button
             android:id="@+id/answer2"
@@ -48,20 +50,20 @@
             android:text="@string/answer2"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             tools:layout_editor_absoluteX="66dp"
-            tools:layout_editor_absoluteY="187dp" />
+            tools:layout_editor_absoluteY="187dp"
+            android:onClick="onAnswerClicked"/>
     </LinearLayout>
 
     <TextView
         android:id="@+id/streakView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="#"
-        tools:layout_editor_absoluteX="338dp"
-        tools:layout_editor_absoluteY="170dp"
-        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
         android:layout_marginEnd="11dp"
-        android:layout_marginTop="15dp" />
+        android:layout_marginTop="15dp"
+        tools:layout_editor_absoluteX="338dp"
+        tools:layout_editor_absoluteY="170dp" />
 
     <ImageButton
         android:id="@+id/nextButton"
@@ -82,14 +84,13 @@
         android:id="@+id/plotView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/nextButton"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/streakView"
+        android:layout_toStartOf="@+id/nextButton"
         android:scrollbars="vertical"
-        android:text="@string/bookplot"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         tools:layout_editor_absoluteX="162dp"
-        tools:layout_editor_absoluteY="138dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignBottom="@+id/nextButton"
-        android:layout_toStartOf="@+id/nextButton"
-        android:layout_below="@+id/streakView" />
+        tools:layout_editor_absoluteY="138dp" />
 
 </RelativeLayout>
