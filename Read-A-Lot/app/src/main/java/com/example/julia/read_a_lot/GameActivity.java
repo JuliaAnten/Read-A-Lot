@@ -7,6 +7,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -18,11 +20,22 @@ public class GameActivity extends AppCompatActivity {
 
     String titles[];
     JSONObject bookObject;
+    String bookPlot = null;
+    String bookTitle = null;
+    TextView plotTextView;
+    Button answer1Button;
+    Button answer2Button;
+    Button answer3Button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        plotTextView = (TextView) findViewById(R.id.plotView);
+        answer1Button = (Button) findViewById(R.id.answer1);
+        answer2Button = (Button) findViewById(R.id.answer2);
+        answer3Button = (Button) findViewById(R.id.answer3);
 
         titles = getResources().getText(R.string.booktitles).toString().split("=");
         bookSearch();
@@ -36,7 +49,7 @@ public class GameActivity extends AppCompatActivity {
         String selectedBook = "";
         Random rand = new Random();
 
-        // Get book title
+        // Get book bookTitle
         selectedBook = titles[rand.nextInt(103)];
         Log.d("log",selectedBook);
         BookAsyncTask asyncTask = new BookAsyncTask(this);
@@ -45,23 +58,45 @@ public class GameActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * Filters the book info after getting it back from the AsyncTask.
+     */
     public void handleBookInfo(String bookInfo) {
 
-        String description = "";
+        JSONObject volumeObject = null;
 
-        JSONArray items = null;
-        JSONArray volumeInfo = null;
         try {
             bookObject = new JSONObject(bookInfo);
-            items = bookObject.getJSONArray("items");
+            JSONArray itemsArray = bookObject.getJSONArray("items");
 
+            for (int i = 0; i < itemsArray.length(); i++){
+
+                try{
+                    JSONObject object = itemsArray.getJSONObject(i);
+                    volumeObject = object.getJSONObject("volumeInfo");
+                } catch (JSONException e){
+                    e.printStackTrace();
+                }
+            }
+
+            if (volumeObject != null) {
+                bookPlot = volumeObject.getString("description");
+                bookTitle = volumeObject.getString("title");
+            }
+Log.d("log",bookPlot);
+            Log.d("log",bookTitle);
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-        Log.d("log", String.valueOf(items));
-        Log.d("log", "4");
+        setToViews();
+    }
+
+
+    public void setToViews(){
+
+        plotTextView.setText(bookPlot);
 
     }
 

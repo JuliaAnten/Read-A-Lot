@@ -2,7 +2,6 @@ package com.example.julia.read_a_lot;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import android.util.Log;
 
 /**
  * Created by Julia on 12/06/2017.

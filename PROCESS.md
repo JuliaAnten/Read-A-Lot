@@ -28,3 +28,6 @@
 
 # Day 6 - 13 june
 - In some descriptions, the name of the book is written. It would be cool to deletes this from the description.
+- Made the httprequesthelper and the asynctask. They recieve JSON data, but it's not handeled right.
+
+# Day 7 - 14 june

@@ -1,99 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context="com.example.julia.read_a_lot.GameActivity">
+    tools:context="com.example.julia.read_a_lot.GameActivity"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/plotView"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/bookplot"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        app:layout_constraintBottom_toTopOf="@+id/answer1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.537"
-        app:layout_constraintRight_toLeftOf="@+id/nextButton"
-        android:layout_marginRight="8dp"
-        app:layout_constraintHorizontal_bias="0.618" />
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="11dp"
+        tools:layout_editor_absoluteY="184dp"
+        android:layout_marginBottom="31dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout2">
 
-    <Button
-        android:id="@+id/answer1"
-        android:layout_width="252dp"
-        android:layout_height="41dp"
-        android:layout_marginBottom="7dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:background="@color/backgroundButton"
-        android:text="@string/answer1"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        app:layout_constraintBottom_toTopOf="@+id/answer2"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        <Button
+            android:id="@+id/answer1"
+            style="@style/Widget.AppCompat.ButtonBar"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/backgroundButton"
+            android:text="@string/answer1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="58dp" />
 
-    <Button
-        android:id="@+id/answer2"
-        android:layout_width="252dp"
-        android:layout_height="41dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:background="@color/backgroundButton"
-        android:text="@string/answer2"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        app:layout_constraintBottom_toTopOf="@+id/answer3"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        <Button
+            android:id="@+id/answer3"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/backgroundButton"
+            android:text="@string/answer3"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            tools:layout_editor_absoluteX="66dp"
+            tools:layout_editor_absoluteY="247dp" />
 
-    <Button
-        android:id="@+id/answer3"
-        android:layout_width="252dp"
-        android:layout_height="41dp"
-        android:layout_marginBottom="46dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:background="@color/backgroundButton"
-        android:text="@string/answer3"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
-
-    <ImageButton
-        android:id="@+id/nextButton"
-        android:layout_width="43dp"
-        android:layout_height="42dp"
-        android:layout_marginEnd="16dp"
-        android:background="@color/white"
-        android:visibility="invisible"
-        app:layout_constraintRight_toRightOf="parent"
-        app:srcCompat="@drawable/arrow"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="320dp"
-        android:contentDescription="@string/go"
-        android:onClick="onNextClicked"/>
+        <Button
+            android:id="@+id/answer2"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/backgroundButton"
+            android:text="@string/answer2"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            tools:layout_editor_absoluteX="66dp"
+            tools:layout_editor_absoluteY="187dp" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/streakView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:text="#"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.93"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/nextButton"
-        app:layout_constraintVertical_bias="0.277" />
+        tools:layout_editor_absoluteX="338dp"
+        tools:layout_editor_absoluteY="170dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="11dp"
+        android:layout_marginTop="15dp" />
 
-</android.support.constraint.ConstraintLayout>
+    <ImageButton
+        android:id="@+id/nextButton"
+        android:layout_width="33dp"
+        android:layout_height="42dp"
+        android:background="@color/white"
+        android:contentDescription="@string/go"
+        android:onClick="onNextClicked"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/arrow"
+        tools:layout_editor_absoluteX="255dp"
+        tools:layout_editor_absoluteY="113dp"
+        android:layout_marginBottom="42dp"
+        android:layout_above="@+id/linearLayout2"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:id="@+id/plotView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:text="@string/bookplot"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        tools:layout_editor_absoluteX="162dp"
+        tools:layout_editor_absoluteY="138dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignBottom="@+id/nextButton"
+        android:layout_toStartOf="@+id/nextButton"
+        android:layout_below="@+id/streakView" />
+
+</RelativeLayout>
