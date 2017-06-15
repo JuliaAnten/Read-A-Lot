@@ -31,3 +31,28 @@
 - Made the httprequesthelper and the asynctask. They recieve JSON data, but it's not handeled right.
 
 # Day 7 - 14 june
+- Answer class isn't necessary. 
+- Plot and answers get set in their views.
+- Answers get different color after answer is chosen.
+- basic app functionality works, but the descriptions need a closer look.
+
+# Day 8 - 15 june
+### General ideas
+TODO:
+
+- Make responses from API better
+	- Make sure he always gets the right book
+	- Make sure he always finds something
+- Erase some information from the plot, like the name of the book if it's in there or the name of the writer.
+- Implement high score menu.
+- App shouldn't reload when device is turned.
+- When a new question is made, scrollview stays in old position. Should go back up.
+
+POSSIBILITIES:
+
+- Add a bookshelve with all the books that you've guessed correct. When clicked on the book, information appears and an link to google books. 
+- Add a reinforcement like a nice animation or a free e-book when certain streaks are reached.
+- Add different difficulties and genres.
+
+### Today
+- Implemented streaks.

@@ -1,22 +1,30 @@
 package com.example.julia.read_a_lot;
 
-import android.content.Context;
+import android.app.AlertDialog;
 import android.os.AsyncTask;
 
 /**
+ * Helps to get book information.
  * Created by Julia on 12/06/2017.
  */
 
-public class BookAsyncTask extends AsyncTask<String, Void, String> {
+class BookAsyncTask extends AsyncTask<String, Void, String> {
 
-    Context context;
-    GameActivity gameAct;
+    private GameActivity gameAct;
+    private AlertDialog alertDialog;
 
-
-    public BookAsyncTask(GameActivity game){
+    BookAsyncTask(GameActivity game){
         this.gameAct = game;
-        this.context = this.gameAct.getApplicationContext();
+    }
 
+    /**
+     * Zou dit hier ook moeten?
+     */
+    @Override
+    protected void onPreExecute(){
+        alertDialog = new AlertDialog.Builder(gameAct).create();
+        alertDialog.setMessage("Get ready!");
+        alertDialog.show();
     }
 
     @Override
@@ -27,7 +35,7 @@ public class BookAsyncTask extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String bookInfo){
         super.onPostExecute(bookInfo);
-
+        alertDialog.dismiss();
         this.gameAct.handleBookInfo(bookInfo);
     }
 }

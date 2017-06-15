@@ -1,6 +1,7 @@
 package com.example.julia.read_a_lot;
 
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
@@ -23,15 +24,15 @@ public class GameActivity extends AppCompatActivity {
     String selectedBook = "";
     String bookPlot = null;
     String chosenAnswer;
+    String wrong1;
+    String wrong2;
 
     JSONObject bookObject;
     Random rand = new Random();
-
-    Answer wrong1;
-    Answer wrong2;
-    Answer right;
+    int streak = 0;
 
     TextView plotTextView;
+    TextView streakTextView;
     Button answer1Button;
     Button answer2Button;
     Button answer3Button;
@@ -45,6 +46,9 @@ public class GameActivity extends AppCompatActivity {
         plotTextView = (TextView) findViewById(R.id.plotView);
         plotTextView.setMovementMethod(new ScrollingMovementMethod());
 
+        streakTextView = (TextView) findViewById(R.id.streakView);
+        streakTextView.setText(String.valueOf(0));
+
         answer1Button = (Button) findViewById(R.id.answer1);
         answer2Button = (Button) findViewById(R.id.answer2);
         answer3Button = (Button) findViewById(R.id.answer3);
@@ -55,16 +59,19 @@ public class GameActivity extends AppCompatActivity {
     }
 
 
+
     /**
      * Sends a request to the AsyncTask to request a book.
      */
     public void bookSearch(){
 
+        int backgroundColor = ContextCompat.getColor(this, R.color.backgroundButton);
+
         // restore begin settings
         nextButton.setVisibility(View.INVISIBLE);
-        answer1Button.setBackgroundColor(this.getResources().getColor(R.color.backgroundButton));
-        answer2Button.setBackgroundColor(this.getResources().getColor(R.color.backgroundButton));
-        answer3Button.setBackgroundColor(this.getResources().getColor(R.color.backgroundButton));
+        answer1Button.setBackgroundColor(backgroundColor);
+        answer2Button.setBackgroundColor(backgroundColor);
+        answer3Button.setBackgroundColor(backgroundColor);
 
         // Get book bookTitle
         selectedBook = titles[rand.nextInt(103)];
@@ -114,24 +121,23 @@ public class GameActivity extends AppCompatActivity {
 
         plotTextView.setText(bookPlot);
 
-        wrong1 = new Answer(titles[rand.nextInt(103)], 1);
-        wrong2 = new Answer(titles[rand.nextInt(103)], 1);
-        right = new Answer(selectedBook, 0);
+        wrong1 = titles[rand.nextInt(103)];
+        wrong2 = titles[rand.nextInt(103)];
 
-        int n = rand.nextInt(2);
+        int n = rand.nextInt(3);
 
         if (n == 0){
-            answer1Button.setText(wrong1.getAnswer());
-            answer2Button.setText(wrong2.getAnswer());
-            answer3Button.setText(right.getAnswer());
+            answer1Button.setText(wrong1);
+            answer2Button.setText(wrong2);
+            answer3Button.setText(selectedBook);
         } else if(n == 1) {
-            answer1Button.setText(wrong1.getAnswer());
-            answer2Button.setText(right.getAnswer());
-            answer3Button.setText(wrong2.getAnswer());
+            answer1Button.setText(wrong1);
+            answer2Button.setText(selectedBook);
+            answer3Button.setText(wrong2);
         } else {
-            answer1Button.setText(right.getAnswer());
-            answer2Button.setText(wrong2.getAnswer());
-            answer3Button.setText(wrong1.getAnswer());
+            answer1Button.setText(selectedBook);
+            answer2Button.setText(wrong2);
+            answer3Button.setText(wrong1);
         }
 
     }
@@ -153,20 +159,46 @@ public class GameActivity extends AppCompatActivity {
             default:
                 throw new RuntimeException("Unknown button ID");
         }
-        checkAnswer();
+        checkAnswers();
+        changeButtons();
     }
 
-    public void checkAnswer(){
-        if (answer1Button.getText().toString().equals(right.getAnswer())){
-            answer1Button.setBackgroundColor(this.getResources().getColor(R.color.rightButton));
-        } else if (answer2Button.getText().toString().equals(right.getAnswer())){
-            answer2Button.setBackgroundColor(this.getResources().getColor(R.color.rightButton));
+
+    /**
+     *  Checks if the answer the user has given is correct.
+     *  Should also add this to shared preferences.
+     */
+    public void checkAnswers(){
+
+        if (chosenAnswer.equals(selectedBook)){
+            streak +=1;
         } else {
-            answer3Button.setBackgroundColor(this.getResources().getColor(R.color.rightButton));
+            streak = 0;
+        }
+
+        streakTextView.setText(String.valueOf(streak));
+
+    }
+
+
+    /**
+     * Checks what is the right answer and makes next button visible.
+     */
+    public void changeButtons(){
+        int rightColor = ContextCompat.getColor(this, R.color.rightButton);
+
+        // change background color of button with right answer.
+        if (answer1Button.getText().toString().equals(selectedBook)){
+            answer1Button.setBackgroundColor(rightColor);
+        } else if (answer2Button.getText().toString().equals(selectedBook)){
+            answer2Button.setBackgroundColor(rightColor);
+        } else {
+            answer3Button.setBackgroundColor(rightColor);
         }
 
         nextButton.setVisibility(View.VISIBLE);
     }
+
 
     /**
      * Takes care of a new question.
@@ -175,6 +207,7 @@ public class GameActivity extends AppCompatActivity {
         bookSearch();
     }
 
+    
     /**
      * Creates high score button.
      */
