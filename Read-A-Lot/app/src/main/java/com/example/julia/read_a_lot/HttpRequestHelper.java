@@ -8,6 +8,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
+ * Requests the book information from the API.
  * Created by Julia on 13/06/2017.
  */
 

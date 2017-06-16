@@ -56,3 +56,10 @@ POSSIBILITIES:
 
 ### Today
 - Implemented streaks.
+- Changed the design to relative layout in GameActivity.
+
+# Day 9 - 16 june
+### Ideas from the presentation
+- force app to portrait mode
+- pre-render as soon as an answer is clicked so you don't have to wait when the next button is clicked.
+- Interesting possibilities: Add different genres and difficulties and look at the bookshelve.

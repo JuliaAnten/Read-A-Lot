@@ -1,5 +1,6 @@
 package com.example.julia.read_a_lot;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -67,7 +68,7 @@ public class GameActivity extends AppCompatActivity {
 
         int backgroundColor = ContextCompat.getColor(this, R.color.backgroundButton);
 
-        // restore begin settings
+        // restore begin settings after next button is used
         nextButton.setVisibility(View.INVISIBLE);
         answer1Button.setBackgroundColor(backgroundColor);
         answer2Button.setBackgroundColor(backgroundColor);
@@ -185,12 +186,13 @@ public class GameActivity extends AppCompatActivity {
      * Checks what is the right answer and makes next button visible.
      */
     public void changeButtons(){
+
         int rightColor = ContextCompat.getColor(this, R.color.rightButton);
 
         // change background color of button with right answer.
-        if (answer1Button.getText().toString().equals(selectedBook)){
+        if (answer1Button.getText().equals(selectedBook)){
             answer1Button.setBackgroundColor(rightColor);
-        } else if (answer2Button.getText().toString().equals(selectedBook)){
+        } else if (answer2Button.getText().equals(selectedBook)){
             answer2Button.setBackgroundColor(rightColor);
         } else {
             answer3Button.setBackgroundColor(rightColor);
@@ -207,7 +209,7 @@ public class GameActivity extends AppCompatActivity {
         bookSearch();
     }
 
-    
+
     /**
      * Creates high score button.
      */
@@ -225,6 +227,10 @@ public class GameActivity extends AppCompatActivity {
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+        alertDialog.setMessage("highscore");
+        alertDialog.show();
+
         return true;
     }
 }
