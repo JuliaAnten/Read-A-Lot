@@ -1,11 +1,12 @@
 package com.example.julia.read_a_lot;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -28,6 +29,10 @@ public class GameActivity extends AppCompatActivity {
     String chosenAnswer;
     String wrong1;
     String wrong2;
+
+    int first;
+    int second;
+    int third;
 
     JSONObject bookObject;
     Random rand = new Random();
@@ -57,9 +62,10 @@ public class GameActivity extends AppCompatActivity {
         nextButton = (ImageButton) findViewById(R.id.nextButton);
 
         titles = getResources().getText(R.string.booktitles).toString().split("=");
+        loadStreakFromSharedPrefs();
         bookSearch();
-    }
 
+    }
 
 
     /**
@@ -85,10 +91,8 @@ public class GameActivity extends AppCompatActivity {
 
     /**
      * Filters the book info after getting it back from the AsyncTask.
-     * first search for the title in the request than get the info
      */
     public void handleBookInfo(String bookInfo) {
-
 
         try {
             bookObject = new JSONObject(bookInfo);
@@ -105,31 +109,25 @@ public class GameActivity extends AppCompatActivity {
                 }
             }
 
+            // get the right book from volumeObject
             for (JSONObject object : volumeObject){
+
                 String titleAndAuthor[] = selectedBook.split(",");
-
-
                 JSONArray authors = null;
-                
-                Log.d("log",object.getString("title"));
-                Log.d("log",titleAndAuthor[0].substring(1));
+
                 try{
                     authors = object.getJSONArray("authors");
                 }
                 catch (JSONException e){
                     e.printStackTrace();
                 }
-                
 
-                Log.d("log",titleAndAuthor[1].substring(titleAndAuthor[1].lastIndexOf(" ")));
-
-
+                // checks the title and author to find the right volume
                 if (authors != null){
-                    Log.d("log","nee");
-                    if (object.getString("title").toLowerCase().equals(titleAndAuthor[0].substring(1).toLowerCase()) & authors.toString().contains(titleAndAuthor[1].substring(titleAndAuthor[1].lastIndexOf(" "))) ){
-                        Log.d("log","ja");
+                    if (object.getString("title").toLowerCase().
+                            equals(titleAndAuthor[0].substring(1).toLowerCase()) & authors.toString().
+                            contains(titleAndAuthor[1].substring(titleAndAuthor[1].lastIndexOf(" ")))){
                         try{
-                            Log.d("log","whoop");
                             bookPlot = object.getString("description");
                         }
                         catch (JSONException e){
@@ -142,36 +140,7 @@ public class GameActivity extends AppCompatActivity {
                         break;
                     }
                 }
-
             }
-
-
-
-//          Log.d("logselected",selectedBook.substring(0, selectedBook.indexOf(",")));
-            //Log.d("logtitle", volumeObject.("title"));
-            // get book plot for volumeObject
-
-//                JSONObject = volumeObject.getString("description");
-//                Log.d("log", volumeObject[1].toString());
-//                for (int i = 0; i < bookObject.getInt("totalItems"); i++){
-//                    if (volumeObject.getString("title").equals(selectedBook.substring(0, selectedBook.indexOf(","))))
-//                        {
-//                            Log.d("log","8");
-//                            bookPlot = volumeObject.getString("description");
-//                            Log.d("log",bookPlot);
-//                        }
-//
-//                }
-//                while (!volumeObject.getString("title").equals(selectedBook.substring(0, selectedBook.indexOf(",")))){
-//                    Log.d("logtitle", volumeObject.getString("title"));
-//
-//                }
-
-//                if (volumeObject.getString("title").equals(selectedBook.substring(0, selectedBook.indexOf(","))))
-//                {
-//                    Log.d("log","8");
-//                    bookPlot = volumeObject.getString("description");
-//                }
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -233,18 +202,50 @@ public class GameActivity extends AppCompatActivity {
 
     /**
      *  Checks if the answer the user has given is correct.
-     *  Should also add this to shared preferences.
      */
     public void checkAnswers(){
 
         if (chosenAnswer.equals(selectedBook)){
             streak +=1;
         } else {
+            checkHighScores();
             streak = 0;
+
         }
 
+        SharedPreferences prefs = this.getSharedPreferences("streaks", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt("streak", streak);
+        editor.apply();
         streakTextView.setText(String.valueOf(streak));
+    }
 
+    public void checkHighScores() {
+
+        loadHighScorefromsharedPrefs();
+
+        SharedPreferences prefs = this.getSharedPreferences("highScores", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+
+        if (first < streak){
+            editor.putInt("first", streak);
+        }
+        else if (second < streak){
+            editor.putInt("second", streak);
+        }
+        else if (third < streak){
+            editor.putInt("third",streak);
+        }
+
+        editor.apply();
+    }
+
+    public void loadHighScorefromsharedPrefs() {
+        SharedPreferences prefs = this.getSharedPreferences("highScores", MODE_PRIVATE);
+
+        first = prefs.getInt("first", 0);
+        second = prefs.getInt("second", 0);
+        third = prefs.getInt("third",0);
     }
 
 
@@ -265,6 +266,18 @@ public class GameActivity extends AppCompatActivity {
         }
 
         nextButton.setVisibility(View.VISIBLE);
+    }
+
+    /**
+     * Loads streak from shared preferences.
+     */
+    public void loadStreakFromSharedPrefs(){
+
+        SharedPreferences prefs = this.getSharedPreferences("streaks", MODE_PRIVATE);
+
+        int streak = prefs.getInt("streak", 0);
+
+        streakTextView.setText(String.valueOf(streak));
     }
 
 
@@ -293,8 +306,15 @@ public class GameActivity extends AppCompatActivity {
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        loadHighScorefromsharedPrefs();
         AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-        alertDialog.setMessage("highscore");
+        alertDialog.setTitle("Highscore");
+        alertDialog.setMessage("1.\t" + first + "\n2.\t" + second + "\n3.\t" + third);
+        alertDialog.setButton("Back",new DialogInterface.OnClickListener(){
+            public void onClick(DialogInterface dialog, int id){
+
+            }
+        });
         alertDialog.show();
 
         return true;

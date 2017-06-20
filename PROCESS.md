@@ -60,13 +60,16 @@ POSSIBILITIES:
 
 # Day 9 - 16 june
 ### Ideas from the presentation
-- force app to portrait mode
-- pre-render as soon as an answer is clicked so you don't have to wait when the next button is clicked.
+- Force app to portrait mode
+- Pre-render as soon as an answer is clicked so you don't have to wait when the next button is clicked.
 - Interesting possibilities: Add different genres and difficulties and look at the bookshelve.
 
 # Day 10 - 19 june
 - Struggled with the google books API. The right book isn't always the first book. Figured out one big problem.
 
 # Day 11 - 20 june
- 
+- Fixed problems with wrong books.
+- Forced game to portrait mode.
+- Added streak and high score to shared preferences.
+- Implemented high score
 
