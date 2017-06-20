@@ -1,5 +1,7 @@
 package com.example.julia.read_a_lot;
 
+import android.util.Log;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -18,15 +20,18 @@ class HttpRequestHelper {
         String selectedBook = params[0];
 
         selectedBook = selectedBook.replace(" ", "+");
-        selectedBook = selectedBook.replace(",", "");
+        String titleAndAuthor[] = selectedBook.split(",");
+
 
         URL url = null;
         try {
-            url = new URL("https://www.googleapis.com/books/v1/volumes?q=" + selectedBook);
+            url = new URL("https://www.googleapis.com/books/v1/volumes?q=intitle:\"" + titleAndAuthor[0] + "\"&inauthor:" + titleAndAuthor[1] + "&printType=books");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
 
+        assert url != null;
+        Log.d("log",url.toString());
         HttpURLConnection connect;
 
 

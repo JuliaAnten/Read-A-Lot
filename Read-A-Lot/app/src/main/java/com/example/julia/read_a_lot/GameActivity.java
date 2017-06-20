@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -23,7 +24,7 @@ public class GameActivity extends AppCompatActivity {
 
     String titles[];
     String selectedBook = "";
-    String bookPlot = null;
+    String bookPlot;
     String chosenAnswer;
     String wrong1;
     String wrong2;
@@ -73,9 +74,10 @@ public class GameActivity extends AppCompatActivity {
         answer1Button.setBackgroundColor(backgroundColor);
         answer2Button.setBackgroundColor(backgroundColor);
         answer3Button.setBackgroundColor(backgroundColor);
+        bookPlot = null;
 
         // Get book bookTitle
-        selectedBook = titles[rand.nextInt(103)];
+        selectedBook = titles[rand.nextInt(titles.length)];
         BookAsyncTask asyncTask = new BookAsyncTask(this);
         asyncTask.execute(selectedBook);
     }
@@ -83,29 +85,93 @@ public class GameActivity extends AppCompatActivity {
 
     /**
      * Filters the book info after getting it back from the AsyncTask.
+     * first search for the title in the request than get the info
      */
     public void handleBookInfo(String bookInfo) {
 
-        JSONObject volumeObject = null;
 
         try {
             bookObject = new JSONObject(bookInfo);
             JSONArray itemsArray = bookObject.getJSONArray("items");
+            JSONObject[] volumeObject = new JSONObject[itemsArray.length()];
 
             // get volumeInfo from itemsArray
             for (int i = 0; i < itemsArray.length(); i++){
                 try{
                     JSONObject object = itemsArray.getJSONObject(i);
-                    volumeObject = object.getJSONObject("volumeInfo");
+                    volumeObject[i] = object.getJSONObject("volumeInfo");
                 } catch (JSONException e){
                     e.printStackTrace();
                 }
             }
 
-            // get book plot for volumeObject
-            if (volumeObject != null) {
-                bookPlot = volumeObject.getString("description");
+            for (JSONObject object : volumeObject){
+                String titleAndAuthor[] = selectedBook.split(",");
+
+
+                JSONArray authors = null;
+                
+                Log.d("log",object.getString("title"));
+                Log.d("log",titleAndAuthor[0].substring(1));
+                try{
+                    authors = object.getJSONArray("authors");
+                }
+                catch (JSONException e){
+                    e.printStackTrace();
+                }
+                
+
+                Log.d("log",titleAndAuthor[1].substring(titleAndAuthor[1].lastIndexOf(" ")));
+
+
+                if (authors != null){
+                    Log.d("log","nee");
+                    if (object.getString("title").toLowerCase().equals(titleAndAuthor[0].substring(1).toLowerCase()) & authors.toString().contains(titleAndAuthor[1].substring(titleAndAuthor[1].lastIndexOf(" "))) ){
+                        Log.d("log","ja");
+                        try{
+                            Log.d("log","whoop");
+                            bookPlot = object.getString("description");
+                        }
+                        catch (JSONException e){
+                            e.printStackTrace();
+                        }
+
+                        if (bookPlot == null){
+                            bookSearch();
+                        }
+                        break;
+                    }
+                }
+
             }
+
+
+
+//          Log.d("logselected",selectedBook.substring(0, selectedBook.indexOf(",")));
+            //Log.d("logtitle", volumeObject.("title"));
+            // get book plot for volumeObject
+
+//                JSONObject = volumeObject.getString("description");
+//                Log.d("log", volumeObject[1].toString());
+//                for (int i = 0; i < bookObject.getInt("totalItems"); i++){
+//                    if (volumeObject.getString("title").equals(selectedBook.substring(0, selectedBook.indexOf(","))))
+//                        {
+//                            Log.d("log","8");
+//                            bookPlot = volumeObject.getString("description");
+//                            Log.d("log",bookPlot);
+//                        }
+//
+//                }
+//                while (!volumeObject.getString("title").equals(selectedBook.substring(0, selectedBook.indexOf(",")))){
+//                    Log.d("logtitle", volumeObject.getString("title"));
+//
+//                }
+
+//                if (volumeObject.getString("title").equals(selectedBook.substring(0, selectedBook.indexOf(","))))
+//                {
+//                    Log.d("log","8");
+//                    bookPlot = volumeObject.getString("description");
+//                }
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -122,8 +188,8 @@ public class GameActivity extends AppCompatActivity {
 
         plotTextView.setText(bookPlot);
 
-        wrong1 = titles[rand.nextInt(103)];
-        wrong2 = titles[rand.nextInt(103)];
+        wrong1 = titles[rand.nextInt(titles.length)];
+        wrong2 = titles[rand.nextInt(titles.length)];
 
         int n = rand.nextInt(3);
 
