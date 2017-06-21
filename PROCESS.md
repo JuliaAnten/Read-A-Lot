@@ -8,8 +8,8 @@
 # Day 2 - 7 june
 - Created the android studio project
 - Made sketches for app flow and needed functions
-![flow](doc/App flow.jpg)
-![functions](doc/First idea diagram.jpg)
+![flow](doc/appFlow.jpg)
+![functions](doc/firstIdeaDiagram.jpg)
 
 # Day 3 - 8 june
 - Completed the prototype

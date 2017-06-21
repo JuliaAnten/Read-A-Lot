@@ -43,8 +43,8 @@ I will use the Google Books API to get information about... books (surprise).
 <https://developers.google.com/books/>
 
 ### Screenshots from app design
-![start](doc/StartActivity.png)
-![game](doc/GameActivity.png)
+![start](doc/startActivity.png)
+![game](doc/gameActivity.png)
 
 <br><br><br><br>
 Logo from [rbmm](http://rbmm.com/work/galahad-books-logo/)

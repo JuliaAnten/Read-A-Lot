@@ -220,17 +220,23 @@ public class GameActivity extends AppCompatActivity {
         streakTextView.setText(String.valueOf(streak));
     }
 
+    /**
+     * Checks the streak against the current high scores and save these to shared preferences.
+     */
     public void checkHighScores() {
 
-        loadHighScorefromsharedPrefs();
+        loadHighScoreFromSharedPrefs();
 
         SharedPreferences prefs = this.getSharedPreferences("highScores", MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
 
         if (first < streak){
+            editor.putInt("second", first);
+            editor.putInt("third", second);
             editor.putInt("first", streak);
         }
         else if (second < streak){
+            editor.putInt("third", second);
             editor.putInt("second", streak);
         }
         else if (third < streak){
@@ -238,14 +244,6 @@ public class GameActivity extends AppCompatActivity {
         }
 
         editor.apply();
-    }
-
-    public void loadHighScorefromsharedPrefs() {
-        SharedPreferences prefs = this.getSharedPreferences("highScores", MODE_PRIVATE);
-
-        first = prefs.getInt("first", 0);
-        second = prefs.getInt("second", 0);
-        third = prefs.getInt("third",0);
     }
 
 
@@ -268,6 +266,27 @@ public class GameActivity extends AppCompatActivity {
         nextButton.setVisibility(View.VISIBLE);
     }
 
+
+    /**
+     * Loads the high scores from shared preferences.
+     */
+    public void loadHighScoreFromSharedPrefs() {
+        SharedPreferences prefs = this.getSharedPreferences("highScores", MODE_PRIVATE);
+
+        first = prefs.getInt("first", 0);
+        second = prefs.getInt("second", 0);
+        third = prefs.getInt("third",0);
+    }
+
+
+    /**
+     * Takes care of a new question.
+     */
+    public void onNextClicked(View view){
+        bookSearch();
+    }
+
+
     /**
      * Loads streak from shared preferences.
      */
@@ -280,13 +299,6 @@ public class GameActivity extends AppCompatActivity {
         streakTextView.setText(String.valueOf(streak));
     }
 
-
-    /**
-     * Takes care of a new question.
-     */
-    public void onNextClicked(View view){
-        bookSearch();
-    }
 
 
     /**
@@ -302,11 +314,10 @@ public class GameActivity extends AppCompatActivity {
 
     /**
      * Implements functionality of high score  button.
-     * Will come later
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        loadHighScorefromsharedPrefs();
+        loadHighScoreFromSharedPrefs();
         AlertDialog alertDialog = new AlertDialog.Builder(this).create();
         alertDialog.setTitle("Highscore");
         alertDialog.setMessage("1.\t" + first + "\n2.\t" + second + "\n3.\t" + third);
