@@ -64,12 +64,19 @@ POSSIBILITIES:
 - Pre-render as soon as an answer is clicked so you don't have to wait when the next button is clicked.
 - Interesting possibilities: Add different genres and difficulties and look at the bookshelve.
 
+## Week 3
+
 # Day 10 - 19 june
-- Struggled with the google books API. The right book isn't always the first book. Figured out one big problem.
+- Struggled with the google books API. The right book isn't always the first book. Figured out one big problem, first I was only getting on of the many books the API got. Now I get an Array with JSONobjects with all of them.
 
 # Day 11 - 20 june
-- Fixed problems with wrong books.
+- Fixed the big problem from yesterday.
 - Forced game to portrait mode.
 - Added streak and high score to shared preferences.
 - Implemented high score
 
+# Day 12 - 21 june
+- App always finds a bookplot
+- Added a filter to delete the title and author of book from the bookplot.
+- Tried to make pre rendering work, but everything crashed.
+- Discovered a problem with recursion which makes app chrash. The problem is with the "dotted" line from getBookPlot to bookSearch. The loop is never broken so the first loop will continu after the second loop is finished. This shouldn't be the case. ![functions](doc/functionDiagram.jpg).
