@@ -35,6 +35,7 @@ public class GameActivity extends AppCompatActivity {
     int third;
 
     JSONObject bookObject;
+    JSONObject[] volumeObject;
     Random rand = new Random();
     int streak = 0;
 
@@ -97,7 +98,7 @@ public class GameActivity extends AppCompatActivity {
         try {
             bookObject = new JSONObject(bookInfo);
             JSONArray itemsArray = bookObject.getJSONArray("items");
-            JSONObject[] volumeObject = new JSONObject[itemsArray.length()];
+            volumeObject = new JSONObject[itemsArray.length()];
 
             // get volumeInfo from itemsArray
             for (int i = 0; i < itemsArray.length(); i++){
@@ -109,44 +110,74 @@ public class GameActivity extends AppCompatActivity {
                 }
             }
 
-            // get the right book from volumeObject
-            for (JSONObject object : volumeObject){
-
-                String titleAndAuthor[] = selectedBook.split(",");
-                JSONArray authors = null;
-
-                try{
-                    authors = object.getJSONArray("authors");
-                }
-                catch (JSONException e){
-                    e.printStackTrace();
-                }
-
-                // checks the title and author to find the right volume
-                if (authors != null){
-                    if (object.getString("title").toLowerCase().
-                            equals(titleAndAuthor[0].substring(1).toLowerCase()) & authors.toString().
-                            contains(titleAndAuthor[1].substring(titleAndAuthor[1].lastIndexOf(" ")))){
-                        try{
-                            bookPlot = object.getString("description");
-                        }
-                        catch (JSONException e){
-                            e.printStackTrace();
-                        }
-
-                        if (bookPlot == null){
-                            bookSearch();
-                        }
-                        break;
-                    }
-                }
-            }
+            getBookPlot();
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
         setToViews();
+    }
+
+
+    /**
+     * Find the right book from the responses from the API.
+     */
+    public void getBookPlot() {
+
+        String[] titleAndAuthor = new String[0];
+        for (JSONObject object : volumeObject) {
+
+            titleAndAuthor = selectedBook.split(",");
+            JSONArray authors = null;
+
+            try {
+                authors = object.getJSONArray("authors");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            
+            // checks the title and author to find the right volume
+            if (authors != null) {
+                try {
+                    if (object.getString("title").toLowerCase().
+                            equals(titleAndAuthor[0].substring(1).toLowerCase()) & authors.toString().
+                            contains(titleAndAuthor[1].substring(titleAndAuthor[1].lastIndexOf(" ")))) {
+                        try {
+                            bookPlot = object.getString("description");
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                        if (bookPlot == null) {
+                            bookSearch();
+                        }
+                        break;
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        filterBookPlot(titleAndAuthor);
+    }
+
+    /**
+     * Filters title information and author information from descriptions.
+     */
+    public void filterBookPlot(String titleAndAuthor[]) {
+
+        if (bookObject != null){
+            String lastName = titleAndAuthor[1].substring(titleAndAuthor[1].lastIndexOf(" "));
+            String firstName = titleAndAuthor[1].substring(titleAndAuthor[1].lastIndexOf(" ", 0));
+
+            bookPlot = bookPlot.replaceAll("(?i)" + titleAndAuthor[0].substring(1), " ... ");
+            bookPlot = bookPlot.replaceAll("(?i)" + titleAndAuthor[1].substring(1), " ... ");
+            bookPlot = bookPlot.replaceAll("(?i)" + lastName.substring(1), " ... ");
+            bookPlot = bookPlot.replaceAll("(?i)" + firstName, " ... ");
+        }
+
     }
 
 
