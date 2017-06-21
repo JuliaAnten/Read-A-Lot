@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -141,7 +140,6 @@ public class GameActivity extends AppCompatActivity {
             // checks the title and author to find the right volume
             if (authors != null) {
                 try {
-                    Log.d("log","ja");
                     if (object.getString("title").toLowerCase().
                             equals(titleAndAuthor[0].substring(1).toLowerCase()) & authors.toString().
                             contains(titleAndAuthor[1].substring(titleAndAuthor[1].lastIndexOf(" ")))) {
@@ -158,6 +156,11 @@ public class GameActivity extends AppCompatActivity {
                 }
             }
         }
+
+        if (bookPlot == null){
+            bookSearch();
+        }
+
         filterBookPlot(titleAndAuthor);
     }
 
