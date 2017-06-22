@@ -148,6 +148,7 @@ public class GameActivity extends AppCompatActivity {
                         } catch (JSONException e) {
                             e.printStackTrace();
                             bookSearch();
+                            return;
                         }
                         break;
                     }
@@ -159,6 +160,7 @@ public class GameActivity extends AppCompatActivity {
 
         if (bookPlot == null){
             bookSearch();
+            return;
         }
 
         filterBookPlot(titleAndAuthor);
