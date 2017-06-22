@@ -19,6 +19,7 @@ public class StartActivity extends AppCompatActivity {
      */
     public void goToGame(View view) {
         Intent intent = new Intent(getApplicationContext(),GameActivity.class);
+        intent.putExtra("onCreate", 0);
         startActivity(intent);
     }
 

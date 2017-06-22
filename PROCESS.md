@@ -80,3 +80,7 @@ POSSIBILITIES:
 - Added a filter to delete the title and author of book from the bookplot.
 - Tried to make pre rendering work, but everything crashed.
 - Discovered a problem with recursion which makes app chrash. The problem is with the "dotted" line from getBookPlot to bookSearch. The loop is never broken so the first loop will continu after the second loop is finished. This shouldn't be the case. ![functions](doc/functionDiagram.jpg).
+
+# Day 13 - 22 june
+- Pre rendering seems to work!!
+- Also think the recursion problem is over

@@ -22,9 +22,7 @@ class BookAsyncTask extends AsyncTask<String, Void, String> {
      */
     @Override
     protected void onPreExecute(){
-        alertDialog = new AlertDialog.Builder(gameAct).create();
-        alertDialog.setMessage("Get ready!");
-        alertDialog.show();
+
     }
 
     @Override
@@ -35,7 +33,6 @@ class BookAsyncTask extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String bookInfo){
         super.onPostExecute(bookInfo);
-        alertDialog.dismiss();
         this.gameAct.handleBookInfo(bookInfo);
     }
 }

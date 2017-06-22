@@ -30,6 +30,7 @@ public class GameActivity extends AppCompatActivity {
     String wrong1;
     String wrong2;
 
+    int onCreate;
     int first;
     int second;
     int third;
@@ -51,6 +52,7 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
+        onCreate = getIntent().getIntExtra("onCreate", 1);
         plotTextView = (TextView) findViewById(R.id.plotView);
         plotTextView.setMovementMethod(new ScrollingMovementMethod());
 
@@ -66,6 +68,7 @@ public class GameActivity extends AppCompatActivity {
         loadStreakFromSharedPrefs();
         bookSearch();
 
+
     }
 
 
@@ -73,15 +76,6 @@ public class GameActivity extends AppCompatActivity {
      * Sends a request to the AsyncTask to request a book.
      */
     public void bookSearch(){
-
-        int backgroundColor = ContextCompat.getColor(this, R.color.backgroundButton);
-
-        // restore begin settings after next button is used
-        nextButton.setVisibility(View.INVISIBLE);
-        answer1Button.setBackgroundColor(backgroundColor);
-        answer2Button.setBackgroundColor(backgroundColor);
-        answer3Button.setBackgroundColor(backgroundColor);
-        bookPlot = null;
 
         // Get book bookTitle
         selectedBook = titles[rand.nextInt(titles.length)];
@@ -116,7 +110,6 @@ public class GameActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        setToViews();
     }
 
 
@@ -179,6 +172,17 @@ public class GameActivity extends AppCompatActivity {
             bookPlot = bookPlot.replaceAll("(?i)" + titleAndAuthor[1].substring(1), " ... ");
             bookPlot = bookPlot.replaceAll("(?i)" + lastName.substring(1), " ... ");
             bookPlot = bookPlot.replaceAll("(?i)" + firstName, " ... ");
+
+            if (onCreate == 0){
+                setToViews();
+                onCreate = 1;
+            } else {
+                nextButton.setVisibility(View.VISIBLE);
+            }
+
+
+
+
         }
 
     }
@@ -188,6 +192,14 @@ public class GameActivity extends AppCompatActivity {
      * Sets the plot and answer to their views.
      */
     public void setToViews(){
+
+        int backgroundColor = ContextCompat.getColor(this, R.color.backgroundButton);
+
+        // restore begin settings after next button is used
+        nextButton.setVisibility(View.INVISIBLE);
+        answer1Button.setBackgroundColor(backgroundColor);
+        answer2Button.setBackgroundColor(backgroundColor);
+        answer3Button.setBackgroundColor(backgroundColor);
 
         plotTextView.setText(bookPlot);
 
@@ -229,8 +241,13 @@ public class GameActivity extends AppCompatActivity {
             default:
                 throw new RuntimeException("Unknown button ID");
         }
+
+        bookPlot = null;
+
         checkAnswers();
         changeButtons();
+        bookSearch();
+
     }
 
 
@@ -297,7 +314,6 @@ public class GameActivity extends AppCompatActivity {
             answer3Button.setBackgroundColor(rightColor);
         }
 
-        nextButton.setVisibility(View.VISIBLE);
     }
 
 
@@ -317,7 +333,7 @@ public class GameActivity extends AppCompatActivity {
      * Takes care of a new question.
      */
     public void onNextClicked(View view){
-        bookSearch();
+        setToViews();
     }
 
 
