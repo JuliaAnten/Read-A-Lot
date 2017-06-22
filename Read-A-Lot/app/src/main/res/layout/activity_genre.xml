@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.julia.read_a_lot.GenreActivity">
+
+    <Button
+        android:id="@+id/Horror"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:text="@string/horror"
+        android:onClick="onGenreClicked"
+        android:background="@color/backgroundButton"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/Mystery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/Horror"
+        android:layout_below="@+id/Horror"
+        android:onClick="onGenreClicked"
+        android:layout_marginTop="57dp"
+        android:text="@string/mystery"
+        android:background="@color/backgroundButton" />
+
+    <Button
+        android:id="@+id/Romance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="@string/romance"
+        android:onClick="onGenreClicked"
+        android:layout_below="@+id/Mystery"
+        android:layout_alignEnd="@+id/Mystery"
+        android:background="@color/backgroundButton" />
+
+    <Button
+        android:id="@+id/SciFi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/Romance"
+        android:onClick="onGenreClicked"
+        android:layout_below="@+id/Romance"
+        android:layout_marginTop="57dp"
+        android:background="@color/backgroundButton"
+        android:text="@string/scifi" />
+</RelativeLayout>

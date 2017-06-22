@@ -4,198 +4,204 @@
     <string name="go">Go!</string>
     <string name="logo">Shows the logo</string>
     <string name="highscore">High Score</string>
-    <string name="booktitles">
-         A Tale of Two Cities,
- Charles Dickens=
-Fellowship of the ring,
- J.R.R. Tolkien=
-The two towers,
- J.R.R. Tolkien=
-The return of the king,
- J.R.R. Tolkien=
-The Little Prince,
- Antoine de Saint-Exupéry=
-The Hobbit,
- J.R.R. Tolkien=
-The Dream of the Red Chamber,
- Cao Xueqin=
-And Then There Were None,
- Agatha Christie=
-The Lion the Witch and the Wardrobe,
- C.S. Lewis=
-She,
- H. Rider Haggard=
-The Da Vinci Code,
- Dan Brown=
-Think and Grow Rich,
- Napoleon Hill=
-The Catcher in the Rye,
- J.D. Salinger=
-The Alchemist,
- Paulo Coelho=
-Steps to Christ,
- Ellen G. White=
-Lolita,
- Vladimir Nabokov=
-Heidi,
- Johanna Spyri=
-Baby and Child Care,
- Benjamin Spock=
-Anne of Green Gables,
- L.M. Montgomery=
-Black Beauty,
- Anna Sewell=
-The Name of the Rose,
- Umberto Eco=
-The Eagle Has Landed,
- Jack Higgins=
-Watership Down,
- Richard Adams=
-The Hite Report,
- Shere Hite=
-Charlotte\’s Web,
- E.B. White=
-The Ginger Man,
- J. P. Donleavy=
-The Tale of Peter Rabbit,
- Beatrix Potter=
-Harry Potter and the Deathly Hallows,
- J.K. Rowling=
-Harry potter and the goblet of fire,
- J.K. Rowling=
-Jonathan Livingston Seagull,
- Richard Bach=
-A Message to Garcia,
- Elbert Hubbard=
-Sophie\'s World,
- Jostein Gaarder=
-Angels and Demons,
- Dan Brown=
-War and Peace,
- Leo Tolstoy=
-Pinocchio,
- Carlo Collodi=
-You Can Heal Your Life,
- Louise L. Hay=
-Kane and Abel,
- Jeffrey Archer=
-The Diary of a Young Girl,
- Anne Frank=
-In His Steps,
- Charles M. Sheldon=
-To Kill a Mockingbird,
- Harper Lee=
-Valley of the Dolls,
- Jacqueline Susann=
-Gone with the Wind,
- Margaret Mitchell=
-One Hundred Years of Solitude,
- Gabriel García Márquez=
-The Thorn Birds,
- Colleen McCullough=
-The Revolt of Mamie Stover,
- William Bradford Huie=
-The Girl with the Dragon Tattoo,
- Stieg Larsson=
-The Very Hungry Caterpillar,
- Eric Carle=
-The Late Great Planet Earth,
- Hal Lindsey=
-Who Moved My Cheese,
- Spencer Johnson=
-The Wind in the Willows,
- Kenneth Grahame=
-1984,
- George Orwell=
-The 7 Habits of Highly Effective People: Powerful Lessons in Personal Change,
- Stephen R. Covey=
-The Celestine Prophecy,
- James Redfield=
-The Hunger Games,
- Suzanne Collins=
-The Godfather,
- Mario Puzo=
-Love Story,
- Erich Segal=
-Wolf Totem,
- Jiang Rong=
-Love You Forever,
- Robert Munsch=
-The Women\'s Room,
- Marilyn French=
-What to Expect When You\'re Expecting,
- Heidi Murkoff=
-The Adventures of Huckleberry Finn,
- Mark Twain=
-The Secret Diary of Adrian Mole Aged 13 3/4,
- Sue Townsend=
-Where the Wild Things Are,
- Maurice Sendak=
-Fear of Flying,
- Erica Jong=
-The Shack,
- William Paul Young=
-Goodnight Moon,
- Margaret Wise Brown=
-The Neverending Story,
- Michael Ende=
-Guess How Much I Love You,
- Sam McBratney=
-Shōgun,
- James Clavell=
-The Poky Little Puppy,
- Janette Sebring Lowrey=
-The Pillars of the Earth,
- Ken Follett=
-How to Win Friends and Influence People,
- Dale Carnegie=
-Perfume: The Story of a Murderer,
- Patrick Süskind=
-The Grapes of Wrath,
- John Steinbeck=
-The Horse Whisperer,
- Nicholas Evans=
-The Shadow of the Wind,
- Carlos Ruiz Zafon=
-The Hitchhiker\'s Guide to the Galaxy,
- Douglas Adams=
-Tuesdays with Morrie,
- Mitch Albom=
-God\'s Little Acre,
- Erskine Caldwell=
-Follow Your Heart,
- Susanna Tamaro=
-The Outsiders,
- S.E. Hinton=
-Charlie and the Chocolate Factory,
- Roald Dahl=
-Norwegian Wood,
- Haruki Murakami=
-Peyton Place,
- Grace Metalious=
-Dune,
- Frank Herbert=
-The Plague,
- Albert Camus=
-No Longer Human,
- Osamu Dazai=
-The Naked Ape: A Zoologist\'s Study of the Human Animal,
- Desmond Morris=
-The Bridges of Madison County,
- Robert James Waller=
-Man\'s Search for Meaning,
- Viktor E. Frankl=
-The Divine Comedy,
- Dante Alighieri=
-Things Fall Apart,
- Chinua Achebe=
-The Exorcist,
- William Peter Blatty=
-The Gruffalo,
- Julia Donaldson=
-Catch-22,
- Joseph Heller=
-Eye of the Needle,
- Ken Follett
-</string>
+    <string name="genre">Pick Genre</string>
+    <string name="horror">Horror</string>
+    <string name="mystery">Mystery</string>
+    <string name="scifi">Sci-Fi</string>
+    <string name="romance">Romance</string>
+    <string name="booktitles">A Tale of Two Cities, Charles Dickens= Fellowship of the ring,  J.R.R. Tolkien=
+        The two towers,  J.R.R. Tolkien= The return of the king,  J.R.R. Tolkien=
+        The Little Prince,  Antoine de Saint-Exupéry= The Hobbit,  J.R.R. Tolkien=
+        The Dream of the Red Chamber,  Cao Xueqin= And Then There Were None, Agatha Christie=
+        The Lion the Witch and the Wardrobe,  C.S. Lewis= She,  H. Rider Haggard= The Da Vinci Code,  Dan Brown=
+        Think and Grow Rich,  Napoleon Hill= The Catcher in the Rye,  J.D. Salinger= The Alchemist,  Paulo Coelho=
+        Steps to Christ,  Ellen G. White= Lolita,  Vladimir Nabokov= Heidi,  Johanna Spyri=
+        Baby and Child Care,  Benjamin Spock= Anne of Green Gables,  L.M. Montgomery= Black Beauty,  Anna Sewell=
+        The Name of the Rose,  Umberto Eco= The Eagle Has Landed,  Jack Higgins= Watership Down,  Richard Adams=
+        The Hite Report,  Shere Hite= Charlotte’s Web,  E.B. White= The Ginger Man,  J. P. Donleavy=
+        The Tale of Peter Rabbit,  Beatrix Potter= Harry Potter and the Deathly Hallows,  J.K. Rowling=
+        Harry potter and the goblet of fire,  J.K. Rowling= Jonathan Livingston Seagull,  Richard Bach=
+        A Message to Garcia,  Elbert Hubbard= Sophie\'s World,  Jostein Gaarder= Angels and Demons,  Dan Brown=
+        War and Peace,  Leo Tolstoy= Pinocchio,  Carlo Collodi= You Can Heal Your Life,  Louise L. Hay=
+        Kane and Abel,  Jeffrey Archer= The Diary of a Young Girl,  Anne Frank= In His Steps,  Charles M. Sheldon=
+        To Kill a Mockingbird,  Harper Lee= Valley of the Dolls,  Jacqueline Susann=
+        Gone with the Wind,  Margaret Mitchell= One Hundred Years of Solitude,  Gabriel García Márquez=
+        The Thorn Birds,  Colleen McCullough= The Revolt of Mamie Stover,  William Bradford Huie=
+        The Girl with the Dragon Tattoo,  Stieg Larsson= The Very Hungry Caterpillar,  Eric Carle=
+        The Late Great Planet Earth,  Hal Lindsey= Who Moved My Cheese,  Spencer Johnson=
+        The Wind in the Willows,  Kenneth Grahame= 1984,  George Orwell=
+        The 7 Habits of Highly Effective People: Powerful Lessons in Personal Change,  Stephen R. Covey=
+        The Celestine Prophecy,  James Redfield= The Hunger Games,  Suzanne Collins= The Godfather,  Mario Puzo=
+        Love Story,  Erich Segal= Wolf Totem,  Jiang Rong= Love You Forever,  Robert Munsch=
+        The Women\'s Room,  Marilyn French= What to Expect When You\'re Expecting,  Heidi Murkoff=
+        The Adventures of Huckleberry Finn,  Mark Twain= The Secret Diary of Adrian Mole Aged 13 3/4,  Sue Townsend=
+        Where the Wild Things Are,  Maurice Sendak= Fear of Flying,  Erica Jong= The Shack,  William Paul Young=
+        Goodnight Moon,  Margaret Wise Brown= The Neverending Story,  Michael Ende=
+        Guess How Much I Love You,  Sam McBratney= Shōgun,  James Clavell=
+        The Poky Little Puppy,  Janette Sebring Lowrey= The Pillars of the Earth,  Ken Follett=
+        How to Win Friends and Influence People,  Dale Carnegie= Perfume: The Story of a Murderer,  Patrick Süskind=
+        The Grapes of Wrath,  John Steinbeck= The Horse Whisperer,  Nicholas Evans=
+        The Shadow of the Wind,  Carlos Ruiz Zafon= The Hitchhiker\'s Guide to the Galaxy,  Douglas Adams=
+        Tuesdays with Morrie,  Mitch Albom= God\'s Little Acre,  Erskine Caldwell= Follow Your Heart,  Susanna Tamaro=
+        The Outsiders,  S.E. Hinton= Charlie and the Chocolate Factory,  Roald Dahl= Norwegian Wood,  Haruki Murakami=
+        Peyton Place,  Grace Metalious= Dune,  Frank Herbert= The Plague,  Albert Camus= No Longer Human,  Osamu Dazai=
+        The Naked Ape: A Zoologist\'s Study of the Human Animal,  Desmond Morris=
+        The Bridges of Madison County,  Robert James Waller= Man\'s Search for Meaning,  Viktor E. Frankl=
+        The Divine Comedy,  Dante Alighieri= Things Fall Apart,  Chinua Achebe= The Exorcist,  William Peter Blatty=
+        The Gruffalo,  Julia Donaldson= Catch-22,  Joseph Heller= Eye of the Needle,  Ken Follett
+    </string>
+    <string name="booktitlesHorror"> All Heads Turn When the Hunt Goes By, John Farris=
+        All Heads Turn When the Hunt Goes By, John Farris= I Am Legend, Richard Matheson=
+        And the Darkness Falls, Boris Karloff= The Anubis Gates, Tim Powers= The Arabian Nightmare, Robert Irwin=
+        The Black Spider, Jeremias Gotthelf= Burnt Offerings, Robert Marasco=
+        The Cadaver of Gideon Wyck, Alexander Laing= Caleb Williams or Things as They Are, William Godwin=
+        The Cellar, Richard Laymon= The Ceremonies, T. E. D. Klein= The collected works of Ambrose Bierce, Ambrose Bierce=
+        The Compleat Werewolf and Other Stories of Fantasy and Science Fiction, Anthony Boucher=
+        The Confidence-Man: His Masquerade, Herman Melville= Conjure Wife, Fritz Leiber= The Crystal World, J.G. Ballard=
+        The Damnation Game, Clive Barker= The dark country,
+        Dennis Etchison= Dark Feasts: The World of Ramsey Campbell, Ramsey Campbell=
+        The Dark Tower and Other Stories, C. S. Lewis= Deathbird Stories, Harlan Ellison= Deliver Me From Eva, Paul Bailey=
+        Doctor Faustus, Christopher Marlowe= Dracula, Bram Stoker= The Exorcist, William Peter Blatty=
+        Falling Angel, William Hjortsberg= Frankenstein, Mary Shelley= Ghost Stories of an Antiquary, M. R. James=
+        Ghost Story, Peter Straub= The Green Man, Kingsley Amis= Grendel, John Gardner=
+        The Haunting of Hill House, Shirley Jackson= Hawksmoor, Peter Ackroyd= Heart of Darkness, Joseph Conrad=
+        Horror Horn, E. F. Benson= The House of Souls, Arthur Machen= The House on the Borderland, William Hope Hodgson=
+        In a Lonely Place, Karl Edward Wagner= The Island of Dr. Moreau, H. G. Wells= The Jewel of Seven Stars, Bram Stoker=
+        John Silence, Physician Extraordinary, Algernon Blackwood= Johnny Got His Gun, Dalton Trumbo= The Keep, F. Paul Wilson=
+        The King in Yellow, Robert W. Chambers= The Land of Laughs, Jonathan Carroll= The Last Bouquet, Marjorie Bowen=
+        Lord of the Flies, William Golding= The Lurker at the Threshold, H. P. Lovecraft=
+        The Lurking Fear and Other Stories, H. P. Lovecraft= Macbeth, William Shakespeare=
+        The Man Who Was Thursday, G. K. Chesterton= Medusa, E. H. Visiak= Melmoth the Wanderer, Charles Robert Maturin=
+        The Monk, Matthew Lewis= The Mouse on the Mile, Stephen King= Murgunstrumm and Others, Hugh B. Cave=
+        Mythago Wood, Robert Holdstock= A Nest of Nightmares, Lisa Tuttle=
+        Night Has a Thousand Eyes: a novel of suspense, George Hopley= Nine Horrors and a Dream, Joseph Payne Brennan=
+        Northanger Abbey, Jane Austen= The October Country, Ray Bradbury= Out of Space and Time, Clark Ashton Smith=
+        The Painted Bird, Jerzy Kosiński= The Pet, Charles L. Grant=
+        The Private Memoirs and Confessions of a Justified Sinner, James Hogg= Psycho, Robert Bloch=
+        Quatermass and the Pit, Nigel Kneale= Red Dragon, Thomas Harris=
+        The Second Century of Creepy Stories, Sir Hugh Walpole= She, H. Rider Haggard= The Sheep Look Up, John Brunner=
+        The Shining, Stephen King= The Sleeping and The Dead, August Derleth= Song of Kali, Dan Simmons=
+        The Sound of His Horn, Sarban= The Strange Case of Dr. Jekyll and Mr. Hyde, Robert Louis Stevenson=
+        Sub Rosa: Strange Tales, Robert Aickman= Swan Song, Robert McCammon= Sweetheart Sweetheart, Bernard Taylor=
+        Tales of Hoffmann, E. T. A. Hoffmann= Tales of Mystery and Imagination, Edgar Allan Poe=
+        The Three Stigmata of Palmer Eldritch, Philip K. Dick= The Totem, David Morrell=
+        The Track of the Cat, Walter Van Tilburg Clark= The Trial, Franz Kafka= The Turn of the Screw, Henry James=
+        Twice-Told Tales, Nathaniel Hawthorne= Uncle Silas: A Tale of Bartram-Haugh, J. Sheridan Le Fanu=
+        A Voyage to Arcturus, David Lindsay= The Wandering Jew, Volume I, Eugène Sue= The Wasp Factory, Iain Banks=
+        The Werewolf of Paris, Guy Endore= The White Devil, John Webster= Who Made Stevie Crye?, Michael Bishop=
+        Widdershins, Oliver Onions= The Wolfen, Whitley Strieber= Worse Things Waiting, Manly Wade Wellman=
+    </string>
+    <string name="booktitlesMystery"> Tales of Mystery and Imagination, Edgar Allan Poe=
+        The Moonstone, Wilkie Collins= The Mystery of Edwin Drood, Charles Dickens=
+        The Adventures of Sherlock Holmes, Sir Arthur Conan Doyle= Raffles: The Amateur Cracksman, E. W. Hornung=
+        The Hound of the Baskervilles, Sir Arthur Conan Doyle= The Circular Staircase, Mary Roberts Rinehart=
+        The Innocence of Father Brown, G. K. Chesterton= The Complete Uncle Abner, Melville Davisson Post=
+        The Mind of J.G. Reeder, Edgar Wallace= The Murder of Roger Ackroyd, Agatha Christie=
+        Red Harvest, Dashiell Hammett= Death of My Aunt, C. H. B. Kitchin= The Documents in the Case, Dorothy L. Sayers=
+        The Maltese Falcon, Dashiell Hammett= The Sands of Windee, Arthur William Upfield=
+        Before the Fact, Francis Iles= The Case of the Sulky Girl, Erle Stanley Gardner=
+        Murder on the Orient Express, Agatha Christie= The Postman Always Rings Twice, James M. Cain=
+        The Nine Tailors, Dorothy L. Sayers= Three Coffins, John Dickson Carr= The League of Frightened Men, Rex Stout=
+        The Lady Vanishes, Ethel Lina White= The Case of the Abominable Snowman, Nicholas Blake=
+        The Bride Wore Black, Cornell Woolrich= Death of a Peer, Ngaio Marsh= Calamity Town, Ellery Queen=
+        Tragedy at Law, Cyril Hare= The High Window, Raymond Chandler= Green for Danger, Christianna Brand=
+        Appleby’s End, Michael Innes= Murder Among Friends, Elizabeth Ferrars= The Horizontal Man, Helen Eustis=
+        The Moving Toyshop, Edmund Crispin= The Fabulous Clipjoint, Fredric Brown= The Franchise Affair, Josephine Tey=
+        Devil Take the Blue-Tail Fly, John Franklin Bardin= More Work for the Undertaker, Margery Allingham=
+        My Friend Maigret, Georges Simenon= The Asphalt Jungle, William Riley Burnett=
+        Smallbone Deceased, Michael Gilbert= Dirty Snow, Georges Simenon= The Daughter of Time, Josephine Tey=
+        Last Seen Wearing…, Hillary Waugh= The Tiger in the Smoke, Margery Allingham=
+        Five Roundabouts to Heaven, John Bingham= The Long Goodbye, Raymond Chandler= Post Mortem, Guy Cullingford=
+        The Cellar at No. , Shelley Smith= The Talented Mr Ripley, Patricia Highsmith= Beast in View, Margaret Millar=
+        Gideon’s Week, J. J. Marric= Quiet Horror, Stanley Ellin= Maigret in Court, Georges Simenon=
+        The New Sonia Wayward, Michael Innes= Gun Before Butter, Nicolas Freeling= The Expendable Man, Dorothy B. Hughes=
+        Pop. 1280, Jim Thompson= R.S.V.P. Murder, Mignon Good Eberhart= The Man Who Killed Himself, Julian Symons=
+        Murder Against the Grain, Emma Lathen= Roseanna, Maj Sjöwall= The Last Best Friend, George Sims=
+        The Glass-Sided Ants’ Nest, Peter Dickinson= Mr. Splitfoot, Helen McCloy= The Private Wound, Nicholas Blake=
+        The Tremor of Forgery, Patricia Highsmith= Blind Man with a Pistol, Chester Himes=
+        Beyond This Point Are Monsters, Margaret Millar= Sadie When She Died, Ed McBain=
+        The Friends of Eddie Coyle, George V. Higgins= The Players and the Game, Julian Symons=
+        Mirror Mirror on the Wall, Stanley Ellin= Dance Hall of the Dead, Tony Hillerman=
+        The Poison Oracle, Peter Dickinson= Fletch, Gregory Mcdonald= The Black Tower, P. D. James=
+        The long shadow, Celia Fremlin= The Blue Hammer, Ross Macdonald= Sleeping Murder, Agatha Christie=
+        A Death in the Life, Dorothy Salisbury Davis= The Investigation, Dorothy Uhnak= A Judgement in Stone, Ruth Rendell=
+        Laidlaw, William McIlvanney= Nobody’s Perfect, Donald E. Westlake= A Pinch of Snuff, Reginald Hill=
+        Skinflick, Joseph Hansen= Kill Claudio, P. M. Hubbard= The Green Ripper, John D. MacDonald=
+        All on a Summer’s Day, John William Wainwright= Death in a Tenured Position, Amanda Cross=
+        The Glitter Dome, Joseph Wambaugh= To Make a Killing, June Thomson= The False Inspector Dew, Peter Lovesey=
+        The Artful Egg, James McClure= A Taste for Death, P. D. James=
+    </string>
+    <string name="booktitlesSciFi"> 1984, George Orwell= Earth Abides, George R. Stewart=
+        The Martian Chronicles, Ray Bradbury= The Puppet Masters, Robert A. Heinlein=
+        The Day of the Triffids, John Wyndham= Limbo, Bernard Wolfe= The Demolished Man, Alfred Bester=
+        Fahrenheit 451, Ray Bradbury= Childhood’s End, Arthur C. Clarke= The Paradox Men, Charles L. Harness=
+        Bring the Jubilee, Ward Moore= The Space Merchants, Frederik Pohl= Ring Around the Sun, Clifford D. Simak=
+        More Than Human, Theodore Sturgeon= Mission of Gravity, Hal Clement= A Mirror for Observers, Edgar Pangborn=
+        The End of Eternity, Isaac Asimov= The Long Tomorrow, Leigh Brackett= The Inheritors, William Golding=
+        The Stars My Destination, Alfred Bester= No Blade of Grass, John Christopher=
+        The City and the Stars, Arthur C. Clarke= The Door into Summer, Robert A. Heinlein=
+        The Midwich Cuckoos, John Wyndham= Non-stop, Brian Aldiss= A Case of Conscience, James Blish=
+        Have Spacesuit, Will Travel, Robert A. Heinlein= Time Out of Joint, Philip K. Dick= Alas, Babylon, Pat Frank=
+        A Canticle for Leibowitz, Walter M. Miller Jr.= The Sirens of Titan, Kurt Vonnegut= Rogue Moon, Algis Budrys=
+        Venus Plus X, Theodore Sturgeon= Hothouse, Brian Wilson Aldiss= The Drowned World, J.G. Ballard=
+        A Clockwork Orange, Anthony Burgess= The Man in the High Castle, Philip K. Dick=
+        Journey beyond tomorrow, Robert Sheckley= Way Station, Clifford D. Simak= Cat’s Cradle, Kurt Vonnegut=
+        Greybeard, Brian W. Aldiss= Nova Express, William S. Burroughs= Martian Time-Slip, Philip K. Dick=
+        The Three Stigmata of Palmer Eldritch, Philip K. Dick= The Wanderer, Fritz Leiber= Norstrilia, Cordwainer Smith=
+        Dr. Bloodmoney, Philip K. Dick= Dune, Frank Herbert= The Crystal World, J.G. Ballard=
+        Make Room! Make Room!, Harry Harrison= Flowers for Algernon, Daniel Keyes= The Dream Master, Roger Zelazny=
+        Stand on Zanzibar, John Brunner= Nova, Samuel R. Delany= Do Androids Dream of Electric Sheep?, Philip K. Dick=
+        Camp Concentration, Thomas M. Disch= The Final Programme, Michael Moorcock= Pavane, Keith Roberts=
+        Heroes and Villains, Angela Carter= The Left Hand of Darkness, Ursula K. Le Guin= The Palace of Eternity, Bob Shaw=
+        Bug Jack Barron, Norman Spinrad= Tau Zero, Poul Anderson= Downward to the Earth, Robert Silverberg=
+        The Year of the Quiet Sun, Wilson Tucker= 334, Thomas M. Disch= The Fifth Head of Cerberus, Gene Wolfe=
+        The Dancers at the End of Time, Michael Moorcock= Crash, J.G. Ballard= The Embedding, Ian Watson=
+        Walk to the End of the World, Suzy McKee Charnas= The Centauri Device, M. John Harrison=
+        The Dispossessed, Ursula K. Le Guin= Inverted World, Christopher Priest= High-Rise, J.G. Ballard=
+        Galaxies, Barry N. Malzberg= The Female Man, Joanna Russ= Orbitsville, Bob Shaw= The Alteration, Kingsley Amis=
+        Woman on the Edge of Time, Marge Piercy= Man Plus, Frederik Pohl= Michaelmas, Algis Budrys=
+        The Ophiuchi Hotline, John Varley= Miracle Visitors, Ian Watson= Engine Summer, John Crowley=
+        On Wings of Song, Thomas M. Disch= The Walking Shadow, Brian Stableford= Juniper Time, Kate Wilhelm=
+        Timescape, Gregory Benford= The Dreaming Dragons, Damien Broderick= Wild Seed, Octavia E. Butler=
+        Riddley Walker, Russell Hoban= The Complete Roderick, John Sladek= The Book of the New Sun, Gene Wolfe=
+        The Unreasoning Mask, Philip José Farmer= Oath of Fealty, Larry Niven= No Enemy But Time, Michael Bishop=
+        Neuromancer, William Gibson
+    </string>
+    <string name="booktitlesRomance"> Fifty Shades of Grey , E.L. James= Beautiful Disaster, Jamie McGuire=
+        Pride and Prejudice, Jane Austen= Twilight, Stephenie Meyer= Perfect Chemistry, Simone Elkeles=
+        The Notebook, Nicholas= Thoughtless , S.C.= Bared to You, Sylvia Day= Outlander, Diana Gabaldon=
+        Jane Eyre, Charlotte Brontë= Easy, Tammara Webber= Gabriel\’s Inferno, Sylvain Reynard=
+        Gone with the Wind, Margaret Mitchell= Slammed, Colleen Hoover= The Time Traveler\’s Wife , Audrey Niffenegger=
+        Anna and the French Kiss, Stephanie Perkins= Vampire Academy, Richelle Mead= Dark Lover, J.R. Ward=
+        Hush Hush, Becca Fitzpatrick= A Walk to Remember, Nicholas Sparks= Divergent, Veronica Roth= The Host,
+        Stephenie Meyer= City of Bones, Cassandra Clare= Love Unscripted, Tina Reber= Wuthering Heights, Emily Brontë=
+        Persuasion, Jane Austen= The Fault in Our Stars, John Green= Obsidian, Jennifer L. Armentrout=
+        Shiver, Maggie Stiefvater= Sense and Sensibility, Jane Austen= On the Island, Tracey Garvis-Graves=
+        Hopeless, Colleen Hoover= Memoirs of a Geisha, Arthur Golden= On Dublin Street, Samantha Young=
+        Halfway to the Grave, Jeaniene Frost= The Truth About Forever, Sarah Dessen=
+        Reason to Breathe, Rebecca Donovan= The Bronze Horseman, Paullina Simons= Water for Elephants, Sara Gruen=
+        Flat-Out Love, Jessica Park= Leaving Paradise, Simone Elkeles= Matched, Ally Condie=
+        Kiss an Angel, Susan Elizabeth Phillips= The Vincent Boys, Abbi Glines=
+        It Had to Be You, Susan Elizabeth Phillips= Clockwork Angel, Cassandra Clare=
+        Significance, Shelly Crane= A Kingdom of Dreams, Judith McNaught= Emma, Jane Austen=
+        Something About You, Julie James= Along for the Ride, Sarah Dessen= The Edge of Never, J.A. Redmerski=
+        Just the Sexiest Man Alive, Julie James= Breathe, Abbi Glines= This Lullaby, Sarah Dessen=
+        Mystery Man, Kristen Ashley= Romeo and Juliet, William Shakespeare= Going Too Far, Jennifer Echols=
+        The Bride, Julie Garwood= Forbidden, Tabitha Suzuma= Shatter Me, Tahereh Mafi=
+        Catching Jordan, Miranda Kenneally= The Gamble, Kristen Ashley= Naked in Death, J.D. Robb=
+        Existence, Abbi Glines= Can You Keep a Secret?, Sophie Kinsella= Sugar Daddy, Lisa Kleypas=
+        Bet Me, Jennifer Crusie= Forget You, Jennifer Echols= Forever Mine, Elizabeth Reyes=
+        The Sweet Gum Tree, Katherine Allred= Playing for Keeps, R.L. Mathewson= The Perfect Play, Jaci Burton=
+        Fallen Too Far, Abbi Glines= The Sky Is Everywhere, Jandy Nelson= Practice Makes Perfect, Julie James=
+        That Boy, Jillian Dodd= Rock Chick, Kristen Ashley= Heart on a Chain, Cindy C. Bennett=
+        Lock and Key, Sarah Dessen= The Boy Who Sneaks in My Bedroom Window, Kirsty Moseley=
+        Hex Hall, Rachel Hawkins= Fallen, Lauren Kate= Wallbanger, Alice Clayton= Delirium, Lauren Oliver=
+        Call Me Irresistible, Susan Elizabeth Phillips= Bridget Jones\’s Diary , Helen Fielding=
+        The Darkest Night, Gena Showalter= Cross My Heart, Katie Klein= Lover Eternal, J.R. Ward=
+        Wait for You, J. Lynn= Trust in Advertising, Victoria Michaels=
+        The Madness of Lord Ian Mackenzie, Jennifer Ashley= Slave to Sensation, Nalini Singh=
+        Pushing the Limits, Katie McGarry= Backstage Pass, Olivia Cunning=
+        Natural Born Charmer, Susan Elizabeth Phillips= Taking Shots, Toni Aleo
+
+    </string>
 </resources>

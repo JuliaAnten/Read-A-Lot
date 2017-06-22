@@ -47,16 +47,16 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:background="@color/backgroundButton"
         android:onClick="goToGame"
         android:text="@string/go"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logoView"
-        app:layout_constraintVertical_bias="0.733" />
+        app:layout_constraintVertical_bias="0.619"
+        app:layout_constraintRight_toLeftOf="@+id/genreButton"
+        android:layout_marginRight="8dp" />
 
     <ImageView
         android:id="@+id/textLogoView"
@@ -73,5 +73,19 @@
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:contentDescription="@string/logo" />
+
+    <Button
+        android:id="@+id/genreButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="58dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/genre"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logoView"
+        app:layout_constraintVertical_bias="0.619"
+        android:onClick="goToGenre"/>
 
 </android.support.constraint.ConstraintLayout>

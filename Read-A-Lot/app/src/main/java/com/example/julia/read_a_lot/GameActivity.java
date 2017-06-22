@@ -29,6 +29,7 @@ public class GameActivity extends AppCompatActivity {
     String chosenAnswer;
     String wrong1;
     String wrong2;
+    String genre;
 
     int onCreate;
     int first;
@@ -53,6 +54,8 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
 
         onCreate = getIntent().getIntExtra("onCreate", 1);
+        genre = getIntent().getStringExtra("genre");
+
         plotTextView = (TextView) findViewById(R.id.plotView);
         plotTextView.setMovementMethod(new ScrollingMovementMethod());
 
@@ -64,13 +67,33 @@ public class GameActivity extends AppCompatActivity {
         answer3Button = (Button) findViewById(R.id.answer3);
         nextButton = (ImageButton) findViewById(R.id.nextButton);
 
-        titles = getResources().getText(R.string.booktitles).toString().split("=");
+        selectList();
         loadStreakFromSharedPrefs();
         bookSearch();
-
-
     }
 
+    /**
+     * Selects the genre.
+     */
+    public void selectList(){
+        switch (genre) {
+            case "horror":
+                titles = getResources().getText(R.string.booktitlesHorror).toString().split("=");
+                break;
+            case "mystery":
+                titles = getResources().getText(R.string.booktitlesMystery).toString().split("=");
+                break;
+            case "romance":
+                titles = getResources().getText(R.string.booktitlesRomance).toString().split("=");
+                break;
+            case "scifi":
+                titles = getResources().getText(R.string.booktitlesSciFi).toString().split("=");
+                break;
+            default:
+                titles = getResources().getText(R.string.booktitles).toString().split("=");
+                break;
+        }
+    }
 
     /**
      * Sends a request to the AsyncTask to request a book.
@@ -109,7 +132,6 @@ public class GameActivity extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
     }
 
 
@@ -180,9 +202,6 @@ public class GameActivity extends AppCompatActivity {
                 nextButton.setVisibility(View.VISIBLE);
             }
 
-
-
-
         }
 
     }
@@ -193,16 +212,9 @@ public class GameActivity extends AppCompatActivity {
      */
     public void setToViews(){
 
-        int backgroundColor = ContextCompat.getColor(this, R.color.backgroundButton);
-
-        // restore begin settings after next button is used
-        nextButton.setVisibility(View.INVISIBLE);
-        answer1Button.setBackgroundColor(backgroundColor);
-        answer2Button.setBackgroundColor(backgroundColor);
-        answer3Button.setBackgroundColor(backgroundColor);
+        restoreBeginSettings();
 
         plotTextView.setText(bookPlot);
-
         wrong1 = titles[rand.nextInt(titles.length)];
         wrong2 = titles[rand.nextInt(titles.length)];
 
@@ -222,6 +234,18 @@ public class GameActivity extends AppCompatActivity {
             answer3Button.setText(wrong1);
         }
 
+    }
+
+    /**
+     * Restore begin settings after next button is clicked.
+     */
+    private void restoreBeginSettings() {
+        int backgroundColor = ContextCompat.getColor(this, R.color.backgroundButton);
+
+        nextButton.setVisibility(View.INVISIBLE);
+        answer1Button.setBackgroundColor(backgroundColor);
+        answer2Button.setBackgroundColor(backgroundColor);
+        answer3Button.setBackgroundColor(backgroundColor);
     }
 
     /**
@@ -261,7 +285,6 @@ public class GameActivity extends AppCompatActivity {
         } else {
             checkHighScores();
             streak = 0;
-
         }
 
         SharedPreferences prefs = this.getSharedPreferences("streaks", MODE_PRIVATE);
@@ -371,9 +394,8 @@ public class GameActivity extends AppCompatActivity {
         AlertDialog alertDialog = new AlertDialog.Builder(this).create();
         alertDialog.setTitle("Highscore");
         alertDialog.setMessage("1.\t" + first + "\n2.\t" + second + "\n3.\t" + third);
-        alertDialog.setButton("Back",new DialogInterface.OnClickListener(){
+        alertDialog.setButton("Back", new DialogInterface.OnClickListener(){
             public void onClick(DialogInterface dialog, int id){
-
             }
         });
         alertDialog.show();
