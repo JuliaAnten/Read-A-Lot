@@ -30,6 +30,8 @@ public class GameActivity extends AppCompatActivity {
     String wrong1;
     String wrong2;
     String genre;
+    String[] titleAndAuthor = new String[0];
+
 
     int onCreate;
     int first;
@@ -38,6 +40,7 @@ public class GameActivity extends AppCompatActivity {
 
     JSONObject bookObject;
     JSONObject[] volumeObject;
+    JSONArray itemsArray;
     Random rand = new Random();
     int streak = 0;
 
@@ -76,6 +79,7 @@ public class GameActivity extends AppCompatActivity {
      * Selects the genre.
      */
     public void selectList(){
+
         switch (genre) {
             case "horror":
                 titles = getResources().getText(R.string.booktitlesHorror).toString().split("=");
@@ -96,11 +100,10 @@ public class GameActivity extends AppCompatActivity {
     }
 
     /**
-     * Sends a request to the AsyncTask to request a book.
+     * Sends a request to the AsyncTask to find a specific book.
      */
     public void bookSearch(){
 
-        // Get book bookTitle
         selectedBook = titles[rand.nextInt(titles.length)];
         BookAsyncTask asyncTask = new BookAsyncTask(this);
         asyncTask.execute(selectedBook);
@@ -108,26 +111,17 @@ public class GameActivity extends AppCompatActivity {
 
 
     /**
-     * Filters the book info after getting it back from the AsyncTask.
+     * Starts the filtering of the book info after getting it back from the AsyncTask.
      */
     public void handleBookInfo(String bookInfo) {
 
         try {
             bookObject = new JSONObject(bookInfo);
-            JSONArray itemsArray = bookObject.getJSONArray("items");
+            itemsArray = bookObject.getJSONArray("items");
             volumeObject = new JSONObject[itemsArray.length()];
 
-            // get volumeInfo from itemsArray
-            for (int i = 0; i < itemsArray.length(); i++){
-                try{
-                    JSONObject object = itemsArray.getJSONObject(i);
-                    volumeObject[i] = object.getJSONObject("volumeInfo");
-                } catch (JSONException e){
-                    e.printStackTrace();
-                }
-            }
-
             getBookPlot();
+            filterBookPlot();
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -140,7 +134,15 @@ public class GameActivity extends AppCompatActivity {
      */
     public void getBookPlot() {
 
-        String[] titleAndAuthor = new String[0];
+        for (int i = 0; i < itemsArray.length(); i++){
+            try{
+                JSONObject object = itemsArray.getJSONObject(i);
+                volumeObject[i] = object.getJSONObject("volumeInfo");
+            } catch (JSONException e){
+                e.printStackTrace();
+            }
+        }
+
         for (JSONObject object : volumeObject) {
 
             titleAndAuthor = selectedBook.split(",");
@@ -175,16 +177,14 @@ public class GameActivity extends AppCompatActivity {
 
         if (bookPlot == null){
             bookSearch();
-            return;
         }
 
-        filterBookPlot(titleAndAuthor);
     }
 
     /**
      * Filters title information and author information from descriptions.
      */
-    public void filterBookPlot(String titleAndAuthor[]) {
+    public void filterBookPlot() {
 
         if (bookPlot != null){
             String lastName = titleAndAuthor[1].substring(titleAndAuthor[1].lastIndexOf(" "));
@@ -201,9 +201,7 @@ public class GameActivity extends AppCompatActivity {
             } else {
                 nextButton.setVisibility(View.VISIBLE);
             }
-
         }
-
     }
 
 
@@ -246,6 +244,8 @@ public class GameActivity extends AppCompatActivity {
         answer1Button.setBackgroundColor(backgroundColor);
         answer2Button.setBackgroundColor(backgroundColor);
         answer3Button.setBackgroundColor(backgroundColor);
+
+        plotTextView.scrollTo(0, 0);
     }
 
     /**
@@ -293,6 +293,7 @@ public class GameActivity extends AppCompatActivity {
         editor.apply();
         streakTextView.setText(String.valueOf(streak));
     }
+
 
     /**
      * Checks the streak against the current high scores and save these to shared preferences.
@@ -371,7 +372,6 @@ public class GameActivity extends AppCompatActivity {
 
         streakTextView.setText(String.valueOf(streak));
     }
-
 
 
     /**

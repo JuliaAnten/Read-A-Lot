@@ -44,6 +44,7 @@ I will use the Google Books API to get information about... books (surprise).
 
 ### Screenshots from app design
 ![start](doc/startActivity.png)
+![genre](doc/genreActivity.png)
 ![game](doc/gameActivity.png)
 
 <br><br><br><br>

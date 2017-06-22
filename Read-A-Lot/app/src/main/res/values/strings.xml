@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Read-A-Lot</string>
-    <string name="explanation">The goal is to guess as many book titles as you can from the book plot. Press Go! to start</string>
+    <string name="explanation">The goal is to guess as many book titles as you can from the book plot. You can start immediately or choose a genre</string>
     <string name="go">Go!</string>
     <string name="logo">Shows the logo</string>
     <string name="highscore">High Score</string>

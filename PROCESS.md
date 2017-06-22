@@ -84,4 +84,8 @@ POSSIBILITIES:
 # Day 13 - 22 june
 - Pre rendering seems to work!!
 - Also think the recursion problem is over
-- Added genres
+- Added genres, see DESIGN.md for screenshots
+- Fixed scrollview staying down
+
+TODO:
+Make sure answer buttons can only be pressed once
