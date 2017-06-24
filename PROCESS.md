@@ -89,3 +89,6 @@ POSSIBILITIES:
 
 TODO:
 Make sure answer buttons can only be pressed once
+
+# Day 14 - 23 june
+- Answer buttons can only be pressed once in GameActivity

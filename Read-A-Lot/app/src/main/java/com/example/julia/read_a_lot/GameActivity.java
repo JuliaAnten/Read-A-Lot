@@ -32,7 +32,6 @@ public class GameActivity extends AppCompatActivity {
     String genre;
     String[] titleAndAuthor = new String[0];
 
-
     int onCreate;
     int first;
     int second;
@@ -79,7 +78,6 @@ public class GameActivity extends AppCompatActivity {
      * Selects the genre.
      */
     public void selectList(){
-
         switch (genre) {
             case "horror":
                 titles = getResources().getText(R.string.booktitlesHorror).toString().split("=");
@@ -103,7 +101,6 @@ public class GameActivity extends AppCompatActivity {
      * Sends a request to the AsyncTask to find a specific book.
      */
     public void bookSearch(){
-
         selectedBook = titles[rand.nextInt(titles.length)];
         BookAsyncTask asyncTask = new BookAsyncTask(this);
         asyncTask.execute(selectedBook);
@@ -114,7 +111,6 @@ public class GameActivity extends AppCompatActivity {
      * Starts the filtering of the book info after getting it back from the AsyncTask.
      */
     public void handleBookInfo(String bookInfo) {
-
         try {
             bookObject = new JSONObject(bookInfo);
             itemsArray = bookObject.getJSONArray("items");
@@ -133,7 +129,6 @@ public class GameActivity extends AppCompatActivity {
      * Find the right book from the responses from the API.
      */
     public void getBookPlot() {
-
         for (int i = 0; i < itemsArray.length(); i++){
             try{
                 JSONObject object = itemsArray.getJSONObject(i);
@@ -185,7 +180,6 @@ public class GameActivity extends AppCompatActivity {
      * Filters title information and author information from descriptions.
      */
     public void filterBookPlot() {
-
         if (bookPlot != null){
             String lastName = titleAndAuthor[1].substring(titleAndAuthor[1].lastIndexOf(" "));
             String firstName = titleAndAuthor[1].substring(titleAndAuthor[1].lastIndexOf(" ", 0));
@@ -206,10 +200,9 @@ public class GameActivity extends AppCompatActivity {
 
 
     /**
-     * Sets the plot and answer to their views.
+     * Sets the plot and answers to their views.
      */
     public void setToViews(){
-
         restoreBeginSettings();
 
         plotTextView.setText(bookPlot);
@@ -231,7 +224,6 @@ public class GameActivity extends AppCompatActivity {
             answer2Button.setText(wrong2);
             answer3Button.setText(wrong1);
         }
-
     }
 
     /**
@@ -246,6 +238,9 @@ public class GameActivity extends AppCompatActivity {
         answer3Button.setBackgroundColor(backgroundColor);
 
         plotTextView.scrollTo(0, 0);
+        answer1Button.setEnabled(true);
+        answer2Button.setEnabled(true);
+        answer3Button.setEnabled(true);
     }
 
     /**
@@ -267,11 +262,9 @@ public class GameActivity extends AppCompatActivity {
         }
 
         bookPlot = null;
-
         checkAnswers();
         changeButtons();
         bookSearch();
-
     }
 
 
@@ -279,7 +272,6 @@ public class GameActivity extends AppCompatActivity {
      *  Checks if the answer the user has given is correct.
      */
     public void checkAnswers(){
-
         if (chosenAnswer.equals(selectedBook)){
             streak +=1;
         } else {
@@ -299,7 +291,6 @@ public class GameActivity extends AppCompatActivity {
      * Checks the streak against the current high scores and save these to shared preferences.
      */
     public void checkHighScores() {
-
         loadHighScoreFromSharedPrefs();
 
         SharedPreferences prefs = this.getSharedPreferences("highScores", MODE_PRIVATE);
@@ -323,10 +314,9 @@ public class GameActivity extends AppCompatActivity {
 
 
     /**
-     * Checks what is the right answer and makes next button visible.
+     * Changes background color of the button with the right answer.
      */
     public void changeButtons(){
-
         int rightColor = ContextCompat.getColor(this, R.color.rightButton);
 
         // change background color of button with right answer.
@@ -337,6 +327,10 @@ public class GameActivity extends AppCompatActivity {
         } else {
             answer3Button.setBackgroundColor(rightColor);
         }
+
+        answer1Button.setEnabled(false);
+        answer2Button.setEnabled(false);
+        answer3Button.setEnabled(false);
 
     }
 
@@ -365,7 +359,6 @@ public class GameActivity extends AppCompatActivity {
      * Loads streak from shared preferences.
      */
     public void loadStreakFromSharedPrefs(){
-
         SharedPreferences prefs = this.getSharedPreferences("streaks", MODE_PRIVATE);
 
         int streak = prefs.getInt("streak", 0);
@@ -392,7 +385,7 @@ public class GameActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         loadHighScoreFromSharedPrefs();
         AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-        alertDialog.setTitle("Highscore");
+        alertDialog.setTitle("High Score");
         alertDialog.setMessage("1.\t" + first + "\n2.\t" + second + "\n3.\t" + third);
         alertDialog.setButton("Back", new DialogInterface.OnClickListener(){
             public void onClick(DialogInterface dialog, int id){
