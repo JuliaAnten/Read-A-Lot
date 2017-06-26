@@ -96,4 +96,6 @@ Make sure answer buttons can only be pressed once
 
 
 # Day 15 - 26 june
-- After 8 or 9 books, the app chrashes.
+- Sometimes the app chrashes, caused by a JSONException: End of input at character 0 of. HTTPRequestHelper gave responseCode 403. Fixed it by adding the country code and API key.
+- Prerendering works optimal.
+- Streaks doesn't start over when app is opened.

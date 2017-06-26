@@ -23,7 +23,7 @@ class HttpRequestHelper {
 
         URL url = null;
         try {
-            url = new URL("https://www.googleapis.com/books/v1/volumes?q=intitle:\"" + titleAndAuthor[0] + "\"&inauthor:" + titleAndAuthor[1] + "&printType=books");
+            url = new URL("https://www.googleapis.com/books/v1/volumes?q=intitle:\"" + titleAndAuthor[0] + "\"&inauthor:" + titleAndAuthor[1] + "&printType=books&key=AIzaSyBmD3yV5rFMTSB9gyOsB8qbrUd5InjWSM4");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
@@ -44,9 +44,8 @@ class HttpRequestHelper {
                     BufferedReader bReader = new BufferedReader(new InputStreamReader(connect.getInputStream()));
                     String line;
 
-                    while ( (line = bReader.readLine()) != null){
+                    while ((line = bReader.readLine()) != null){
                         result += line;
-
                     }
                 }
 

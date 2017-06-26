@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -23,13 +24,14 @@ import java.util.Random;
 
 public class GameActivity extends AppCompatActivity {
 
-    String titles[];
+    String[] titles;
     String selectedBook = "";
     String bookPlot;
     String chosenAnswer;
     String wrong1;
     String wrong2;
     String genre;
+    String rightAnswer;
     String[] titleAndAuthor = new String[0];
 
     int onCreate;
@@ -41,7 +43,7 @@ public class GameActivity extends AppCompatActivity {
     JSONObject[] volumeObject;
     JSONArray itemsArray;
     Random rand = new Random();
-    int streak = 0;
+    int streak;
 
     TextView plotTextView;
     TextView streakTextView;
@@ -58,6 +60,16 @@ public class GameActivity extends AppCompatActivity {
         onCreate = getIntent().getIntExtra("onCreate", 1);
         genre = getIntent().getStringExtra("genre");
 
+        setUpViews();
+        selectList();
+        loadStreakFromSharedPrefs();
+        bookSearch();
+    }
+
+    /**
+     * Sets up the text views and buttons.
+     */
+    public void setUpViews(){
         plotTextView = (TextView) findViewById(R.id.plotView);
         plotTextView.setMovementMethod(new ScrollingMovementMethod());
 
@@ -68,10 +80,6 @@ public class GameActivity extends AppCompatActivity {
         answer2Button = (Button) findViewById(R.id.answer2);
         answer3Button = (Button) findViewById(R.id.answer3);
         nextButton = (ImageButton) findViewById(R.id.nextButton);
-
-        selectList();
-        loadStreakFromSharedPrefs();
-        bookSearch();
     }
 
     /**
@@ -173,7 +181,6 @@ public class GameActivity extends AppCompatActivity {
         if (bookPlot == null){
             bookSearch();
         }
-
     }
 
     /**
@@ -194,6 +201,9 @@ public class GameActivity extends AppCompatActivity {
                 onCreate = 1;
             } else {
                 nextButton.setVisibility(View.VISIBLE);
+                if (chosenAnswer == null){
+                    nextButton.setEnabled(false);
+                }
             }
         }
     }
@@ -225,6 +235,12 @@ public class GameActivity extends AppCompatActivity {
             answer2Button.setText(wrong2);
             answer3Button.setText(wrong1);
         }
+
+        rightAnswer = selectedBook;
+        chosenAnswer = null;
+        Log.d("log",rightAnswer);
+        bookPlot = null;
+        bookSearch();
     }
 
     /**
@@ -262,10 +278,12 @@ public class GameActivity extends AppCompatActivity {
                 throw new RuntimeException("Unknown button ID");
         }
 
-        bookPlot = null;
         checkAnswers();
         changeButtons();
-        bookSearch();
+
+        if (nextButton.getVisibility() == View.VISIBLE){
+            nextButton.setEnabled(true);
+        }
     }
 
 
@@ -273,7 +291,7 @@ public class GameActivity extends AppCompatActivity {
      *  Checks if the answer the user has given is correct.
      */
     public void checkAnswers(){
-        if (chosenAnswer.equals(selectedBook)){
+        if (chosenAnswer.equals(rightAnswer)){
             streak +=1;
         } else {
             checkHighScores();
@@ -321,9 +339,9 @@ public class GameActivity extends AppCompatActivity {
         int rightColor = ContextCompat.getColor(this, R.color.rightButton);
 
         // change background color of button with right answer.
-        if (answer1Button.getText().equals(selectedBook)){
+        if (answer1Button.getText().equals(rightAnswer)){
             answer1Button.setBackgroundColor(rightColor);
-        } else if (answer2Button.getText().equals(selectedBook)){
+        } else if (answer2Button.getText().equals(rightAnswer)){
             answer2Button.setBackgroundColor(rightColor);
         } else {
             answer3Button.setBackgroundColor(rightColor);
@@ -362,7 +380,7 @@ public class GameActivity extends AppCompatActivity {
     public void loadStreakFromSharedPrefs(){
         SharedPreferences prefs = this.getSharedPreferences("streaks", MODE_PRIVATE);
 
-        int streak = prefs.getInt("streak", 0);
+        streak = prefs.getInt("streak", 0);
 
         streakTextView.setText(String.valueOf(streak));
     }
