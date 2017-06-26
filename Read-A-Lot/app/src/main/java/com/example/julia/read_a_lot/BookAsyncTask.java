@@ -1,3 +1,7 @@
+/*
+ * Handles the AsyncTask to get the book information.
+ * Created by Julia Anten.
+ */
 package com.example.julia.read_a_lot;
 
 import android.app.AlertDialog;

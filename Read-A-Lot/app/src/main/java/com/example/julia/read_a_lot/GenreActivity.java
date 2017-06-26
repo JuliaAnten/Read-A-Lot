@@ -1,3 +1,8 @@
+/*
+ * Handles the possibility to choose a genre.
+ * Created by Julia Anten.
+ */
+
 package com.example.julia.read_a_lot;
 
 import android.content.Intent;
@@ -15,7 +20,9 @@ public class GenreActivity extends AppCompatActivity {
         setContentView(R.layout.activity_genre);
     }
 
-
+    /**
+     * Checks which genre button is clicked.
+     */
     public void onGenreClicked(View view){
         switch (view.getId()) {
             case R.id.Horror:
@@ -36,6 +43,8 @@ public class GenreActivity extends AppCompatActivity {
 
         goToGame();
     }
+
+
     /**
      * Sends user to the game.
      */

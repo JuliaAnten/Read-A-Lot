@@ -1,3 +1,8 @@
+/*
+ * Handles the core functionality of the game.
+ * Created by Julia Anten.
+ */
+
 package com.example.julia.read_a_lot;
 
 import android.app.AlertDialog;
@@ -9,7 +14,6 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -228,18 +232,25 @@ public class GameActivity extends AppCompatActivity {
             bookPlot = bookPlot.replaceAll("(?i)" + lastName.substring(1), " ... ");
             bookPlot = bookPlot.replaceAll("(?i)" + firstName, " ... ");
 
-            if (onCreate == 0){
-                setToViews();
-                onCreate = 1;
-            } else {
-                nextButton.setVisibility(View.VISIBLE);
-                if (chosenAnswer == null){
-                    nextButton.setEnabled(false);
-                }
-            }
+            setupNext();
         }
     }
 
+    /**
+     * Book info/Next
+     * Sets up the next question.
+     */
+    public void setupNext(){
+        if (onCreate == 0){
+            setToViews();
+            onCreate = 1;
+        } else {
+            nextButton.setVisibility(View.VISIBLE);
+            if (chosenAnswer == null){
+                nextButton.setEnabled(false);
+            }
+        }
+    }
 
     /**
      * Answers
@@ -355,21 +366,8 @@ public class GameActivity extends AppCompatActivity {
      */
     public void setToViews(){
         restoreBeginSettings();
-
+        assertWrong();
         plotTextView.setText(bookPlot);
-        wrong1 = titles[rand.nextInt(titles.length)];
-        wrong2 = titles[rand.nextInt(titles.length)];
-
-        while (wrong1.equals(selectedBook)){
-            Log.d("log","loop");
-            wrong1 = titles[rand.nextInt(titles.length)];
-        }
-
-        while (wrong2.equals(selectedBook)){
-            Log.d("log","loop2");
-
-            wrong2 = titles[rand.nextInt(titles.length)];
-        }
 
         int n = rand.nextInt(3);
 
@@ -389,7 +387,6 @@ public class GameActivity extends AppCompatActivity {
 
         rightAnswer = selectedBook;
         chosenAnswer = null;
-        Log.d("log",rightAnswer);
         bookPlot = null;
         bookSearch();
     }
@@ -411,6 +408,24 @@ public class GameActivity extends AppCompatActivity {
         answer1Button.setEnabled(true);
         answer2Button.setEnabled(true);
         answer3Button.setEnabled(true);
+    }
+
+
+    /**
+     * Next
+     * Assert wrong titles.
+     */
+    public void assertWrong(){
+        wrong1 = titles[rand.nextInt(titles.length)];
+        wrong2 = titles[rand.nextInt(titles.length)];
+
+        while (wrong1.equals(selectedBook)){
+            wrong1 = titles[rand.nextInt(titles.length)];
+        }
+
+        while (wrong2.equals(selectedBook)){
+            wrong2 = titles[rand.nextInt(titles.length)];
+        }
     }
 
 

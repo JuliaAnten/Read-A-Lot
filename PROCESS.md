@@ -99,3 +99,4 @@ Make sure answer buttons can only be pressed once
 - Sometimes the app chrashes, caused by a JSONException: End of input at character 0 of. HTTPRequestHelper gave responseCode 403. Fixed it by adding the country code and API key.
 - Prerendering works optimal.
 - Streaks doesn't start over when app is opened.
+- Cleaned up the code.

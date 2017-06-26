@@ -1,3 +1,8 @@
+/*
+ * Main activity, sends you to the game or genre activity.
+ * Created by Julia Anten.
+ */
+
 package com.example.julia.read_a_lot;
 
 import android.content.Intent;
@@ -24,6 +29,7 @@ public class StartActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    
     /**
      * Sends user to activity to pick genre.
      */

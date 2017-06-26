@@ -1,3 +1,8 @@
+/*
+ * Handles the request to the API.
+ * Created by Julia Anten.
+ */
+
 package com.example.julia.read_a_lot;
 
 import java.io.BufferedReader;
