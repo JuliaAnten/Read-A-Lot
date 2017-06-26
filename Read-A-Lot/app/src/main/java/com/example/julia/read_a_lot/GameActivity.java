@@ -205,6 +205,7 @@ public class GameActivity extends AppCompatActivity {
     public void setToViews(){
         restoreBeginSettings();
 
+        //TODO: make sure the wrongs and right are not the same
         plotTextView.setText(bookPlot);
         wrong1 = titles[rand.nextInt(titles.length)];
         wrong2 = titles[rand.nextInt(titles.length)];

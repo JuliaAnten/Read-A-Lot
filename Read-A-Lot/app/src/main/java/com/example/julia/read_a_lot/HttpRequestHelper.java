@@ -1,7 +1,5 @@
 package com.example.julia.read_a_lot;
 
-import android.util.Log;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -30,8 +28,6 @@ class HttpRequestHelper {
             e.printStackTrace();
         }
 
-        assert url != null;
-        Log.d("log",url.toString());
         HttpURLConnection connect;
 
 

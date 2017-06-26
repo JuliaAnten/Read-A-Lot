@@ -91,4 +91,9 @@ TODO:
 Make sure answer buttons can only be pressed once
 
 # Day 14 - 23 june
-- Answer buttons can only be pressed once in GameActivity
+- Answer buttons can only be pressed once in GameActivity.
+- TODO: Start with prerendering as soon as setToViews has been done.
+
+
+# Day 15 - 26 june
+- After 8 or 9 books, the app chrashes.
