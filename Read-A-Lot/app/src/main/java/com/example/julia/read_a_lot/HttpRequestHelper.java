@@ -49,8 +49,9 @@ class HttpRequestHelper {
                     while ((line = bReader.readLine()) != null) {
                         result += line;
                     }
+                } else {
+                    result = "wrong";
                 }
-                //TODO: how to handle the else if responseCode isn't 200
 
             } catch (IOException e) {
                 e.printStackTrace();

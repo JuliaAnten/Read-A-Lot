@@ -45,6 +45,7 @@ public class GameActivity extends AppCompatActivity {
     int first;
     int second;
     int third;
+    int count = 0;
 
     JSONObject bookObject;
     JSONObject[] volumeObject;
@@ -142,9 +143,16 @@ public class GameActivity extends AppCompatActivity {
      * Sends a request to the AsyncTask to find a specific book.
      */
     public void bookSearch() {
-        selectedBook = titles[rand.nextInt(titles.length)];
-        BookAsyncTask asyncTask = new BookAsyncTask(this);
-        asyncTask.execute(selectedBook);
+        if (count < 3) {
+            selectedBook = titles[rand.nextInt(titles.length)];
+            BookAsyncTask asyncTask = new BookAsyncTask(this);
+            asyncTask.execute(selectedBook);
+        } else {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("No book plots available. Please try again later.");
+            builder.create().show();
+        }
+
     }
 
 
@@ -154,6 +162,9 @@ public class GameActivity extends AppCompatActivity {
      * @param bookInfo  Information from the API about a book.
      */
     public void handleBookInfo(String bookInfo) {
+
+        checkInfo(bookInfo);
+
         try {
             bookObject = new JSONObject(bookInfo);
             itemsArray = bookObject.getJSONArray("items");
@@ -164,6 +175,16 @@ public class GameActivity extends AppCompatActivity {
 
         } catch (JSONException e) {
             e.printStackTrace();
+        }
+    }
+
+    private void checkInfo(String bookInfo) {
+
+        if (bookInfo.equals("wrong")) {
+            count++;
+            bookSearch();
+        } else {
+            count = 0;
         }
     }
 

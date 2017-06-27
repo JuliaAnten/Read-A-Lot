@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.julia.read_a_lot.StartActivity"
-    android:background="@color/white">
+    android:background="@drawable/background">
 
     <ImageView
         android:id="@+id/logoView"
@@ -19,16 +19,15 @@
         app:srcCompat="@drawable/logo"
         app:layout_constraintHorizontal_bias="0.157"
         app:layout_constraintTop_toTopOf="@+id/textLogoView"
-        android:layout_marginTop="50dp" />
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:id="@+id/explanationView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
         android:ems="10"
         android:text="@string/explanation"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
@@ -39,7 +38,10 @@
         app:layout_constraintLeft_toLeftOf="@+id/logoView"
         app:layout_constraintRight_toRightOf="@+id/logoView"
         app:layout_constraintTop_toTopOf="@+id/logoView"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="1.0"
+        android:layout_alignBottom="@+id/logoView"
+        android:layout_alignEnd="@+id/logoView"
+        android:layout_marginBottom="34dp" />
 
     <ImageView
         android:id="@+id/textLogoView"
@@ -47,37 +49,38 @@
         android:layout_height="114dp"
         app:srcCompat="@drawable/textlogo"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/logoView"
-        android:layout_marginBottom="8dp"
         app:layout_constraintVertical_bias="0.022"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:contentDescription="@string/logo" />
+        android:contentDescription="@string/logo"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp" />
 
     <Button
         android:id="@+id/genreButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginRight="58dp"
-        android:layout_marginTop="8dp"
         android:text="@string/genre"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logoView"
         app:layout_constraintVertical_bias="0.619"
-        android:onClick="goToGenre"/>
+        android:onClick="goToGenre"
+        android:layout_below="@+id/logoView"
+        android:layout_toEndOf="@+id/goButton"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="13dp" />
 
     <Button
         android:id="@+id/goButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
         android:backgroundTint="@color/backgroundButton"
         android:onClick="goToGame"
         android:text="@string/go"
@@ -86,6 +89,10 @@
         app:layout_constraintTop_toBottomOf="@+id/logoView"
         app:layout_constraintVertical_bias="0.619"
         app:layout_constraintRight_toLeftOf="@+id/genreButton"
-        android:layout_marginRight="8dp" />
+        android:layout_marginRight="8dp"
+        android:layout_alignBaseline="@+id/genreButton"
+        android:layout_alignBottom="@+id/genreButton"
+        android:layout_alignStart="@+id/textLogoView"
+        android:layout_marginStart="51dp" />
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

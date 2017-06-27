@@ -102,3 +102,10 @@ Make sure answer buttons can only be pressed once
 - Cleaned up the code.
 - Check for internet connection.
 - Next button is enabled after answer is chosen.
+
+# Day 16 - 27 june
+- Changed to relative layout
+- Added background
+- Cleaned up code
+- Added fail safe for wrong response codes
+- Updated javadoc strings
