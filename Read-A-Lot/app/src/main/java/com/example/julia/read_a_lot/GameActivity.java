@@ -1,6 +1,7 @@
 /*
  * Handles the core functionality of the game.
- * Created by Julia Anten.
+ * Created by Julia Anten
+ * Open source
  */
 
 package com.example.julia.read_a_lot;
@@ -82,10 +83,10 @@ public class GameActivity extends AppCompatActivity {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 
         if (cm.getActiveNetworkInfo() == null) {
-            AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-            alertDialog.setTitle("No internet connection");
-            alertDialog.setMessage("Please connect to internet");
-            alertDialog.show();
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("No internet connection");
+            builder.setMessage("Please connect to the internet");
+            builder.create().show();
 
             answer1Button.setEnabled(false);
             answer2Button.setEnabled(false);
@@ -150,6 +151,7 @@ public class GameActivity extends AppCompatActivity {
     /**
      * Book info
      * Starts the filtering of the book info after getting it back from the AsyncTask.
+     * @param bookInfo  Information from the API about a book.
      */
     public void handleBookInfo(String bookInfo) {
         try {
@@ -255,6 +257,7 @@ public class GameActivity extends AppCompatActivity {
     /**
      * Answers
      * Checks which answer button is clicked.
+     * @param view  The three answer buttons.
      */
     public void onAnswerClicked(View view) {
         switch (view.getId()) {
@@ -350,7 +353,9 @@ public class GameActivity extends AppCompatActivity {
     /**
      * Next
      * Takes care of a new question.
+     * @param view The next button.
      */
+
     public void onNextClicked(View view) {
         setToViews();
         checkConnection();
@@ -425,7 +430,7 @@ public class GameActivity extends AppCompatActivity {
 
     /**
      * Next
-     * Initiates next search
+     * Initiates next search.
      */
     public void nextSearch() {
         rightAnswer = selectedBook;
@@ -464,6 +469,8 @@ public class GameActivity extends AppCompatActivity {
     /**
      * Menu
      * Creates high score button.
+     * @param menu  The menu resource with the appearance of the menu.
+     * @return  Returns true when finished.
      */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -472,22 +479,25 @@ public class GameActivity extends AppCompatActivity {
         return true;
     }
 
-// TODO: find other function than set button
     /**
      * Menu
-     * Implements functionality of high score  button.
+     * Implements functionality of high score button.
+     * @param item  Item in the menu resource with the high score button.
+     * @return  Returns true when finished.
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         loadHighScoreFromSharedPrefs();
-        AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-        alertDialog.setTitle("High Score");
-        alertDialog.setMessage("1.\t" + first + "\n2.\t" + second + "\n3.\t" + third);
-        alertDialog.setButton("Back", new DialogInterface.OnClickListener() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("High Score");
+        builder.setMessage("1.\t" + first + "\n2.\t" + second + "\n3.\t" + third);
+        builder.setPositiveButton("Back", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
             }
         });
-        alertDialog.show();
+
+        builder.create().show();
 
         return true;
     }

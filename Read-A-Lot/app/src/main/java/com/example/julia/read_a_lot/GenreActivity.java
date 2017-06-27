@@ -1,6 +1,7 @@
 /*
  * Handles the possibility to choose a genre.
- * Created by Julia Anten.
+ * Created by Julia Anten
+ * Open source
  */
 
 package com.example.julia.read_a_lot;
@@ -22,6 +23,7 @@ public class GenreActivity extends AppCompatActivity {
 
     /**
      * Checks which genre button is clicked.
+     * @param view The four genre buttons.
      */
     public void onGenreClicked(View view) {
         switch (view.getId()) {

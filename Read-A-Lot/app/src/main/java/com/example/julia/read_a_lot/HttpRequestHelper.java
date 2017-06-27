@@ -1,6 +1,7 @@
 /*
  * Handles the request to the API.
  * Created by Julia Anten.
+ * Open source
  */
 
 package com.example.julia.read_a_lot;
@@ -13,17 +14,16 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 class HttpRequestHelper {
-    public static String downloadFromServer(String... params) {
-
+    static String downloadFromServer(String... params) {
         String APIKey = "AIzaSyBmD3yV5rFMTSB9gyOsB8qbrUd5InjWSM4";
         String result = "";
         String selectedBook = params[0];
 
+        // make the url
         selectedBook = selectedBook.replace(" ", "+");
         String titleAndAuthor[] = selectedBook.split(",");
-
-
         URL url = null;
+
         try {
             url = new URL("https://www.googleapis.com/books/v1/volumes?q=intitle:\"" + titleAndAuthor[0] +
                     "\"&inauthor:" + titleAndAuthor[1] + "&printType=books&key=" + APIKey);
@@ -33,9 +33,8 @@ class HttpRequestHelper {
 
         HttpURLConnection connect;
 
-
+        // connect to the API
         if (url != null) {
-
             try {
                 connect = (HttpURLConnection) url.openConnection();
 
@@ -43,7 +42,6 @@ class HttpRequestHelper {
                 Integer responseCode = connect.getResponseCode();
 
                 if (responseCode == 200) {
-
                     BufferedReader bReader =
                             new BufferedReader(new InputStreamReader(connect.getInputStream()));
                     String line;
