@@ -100,3 +100,5 @@ Make sure answer buttons can only be pressed once
 - Prerendering works optimal.
 - Streaks doesn't start over when app is opened.
 - Cleaned up the code.
+- Check for internet connection.
+- Next button is enabled after answer is chosen.

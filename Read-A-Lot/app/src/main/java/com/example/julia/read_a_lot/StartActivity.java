@@ -29,7 +29,7 @@ public class StartActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    
+
     /**
      * Sends user to activity to pick genre.
      */

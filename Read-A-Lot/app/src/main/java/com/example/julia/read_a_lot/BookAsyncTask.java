@@ -1,3 +1,4 @@
+//TODO: moet dit hier of iets naar beneden
 /*
  * Handles the AsyncTask to get the book information.
  * Created by Julia Anten.
@@ -6,11 +7,6 @@ package com.example.julia.read_a_lot;
 
 import android.app.AlertDialog;
 import android.os.AsyncTask;
-
-/**
- * Helps to get book information.
- * Created by Julia on 12/06/2017.
- */
 
 class BookAsyncTask extends AsyncTask<String, Void, String> {
 
@@ -25,7 +21,7 @@ class BookAsyncTask extends AsyncTask<String, Void, String> {
      * Zou dit hier ook moeten?
      */
     @Override
-    protected void onPreExecute(){
+    protected void onPreExecute() {
 
     }
 
@@ -35,7 +31,7 @@ class BookAsyncTask extends AsyncTask<String, Void, String> {
     }
 
     @Override
-    protected void onPostExecute(String bookInfo){
+    protected void onPostExecute(String bookInfo) {
         super.onPostExecute(bookInfo);
         this.gameAct.handleBookInfo(bookInfo);
     }

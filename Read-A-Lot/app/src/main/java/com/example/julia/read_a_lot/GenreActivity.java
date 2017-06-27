@@ -23,7 +23,7 @@ public class GenreActivity extends AppCompatActivity {
     /**
      * Checks which genre button is clicked.
      */
-    public void onGenreClicked(View view){
+    public void onGenreClicked(View view) {
         switch (view.getId()) {
             case R.id.Horror:
                 genre = "horror";
