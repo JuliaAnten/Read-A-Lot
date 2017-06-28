@@ -1,7 +1,6 @@
 /*
  * Main activity, sends you to the game or genre activity.
- * Created by Julia Anten
- * Open source
+ * Copyright © 2017 Julia Anten. All rights reserved.
  */
 
 package com.example.julia.read_a_lot;

@@ -1,7 +1,6 @@
 /*
  * Handles the request to the API.
- * Created by Julia Anten.
- * Open source
+ * Copyright © 2017 Julia Anten. All rights reserved.
  */
 
 package com.example.julia.read_a_lot;

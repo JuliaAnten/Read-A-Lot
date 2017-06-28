@@ -1,7 +1,6 @@
 /*
  * Handles the core functionality of the game.
- * Created by Julia Anten
- * Open source
+ * Copyright © 2017 Julia Anten. All rights reserved.
  */
 
 package com.example.julia.read_a_lot;
@@ -35,17 +34,17 @@ public class GameActivity extends AppCompatActivity {
     String selectedBook = "";
     String bookPlot;
     String chosenAnswer;
-    String wrong1;
-    String wrong2;
+    String wrongAnswerOne;
+    String wrongAnswerTwo;
     String genre;
     String rightAnswer;
     String[] titleAndAuthor = new String[0];
 
     int onCreate;
-    int first;
-    int second;
-    int third;
-    int count = 0;
+    int firstScore;
+    int secondScore;
+    int thirdScore;
+    int countNonResponse = 0;
 
     JSONObject bookObject;
     JSONObject[] volumeObject;
@@ -55,9 +54,9 @@ public class GameActivity extends AppCompatActivity {
 
     TextView plotTextView;
     TextView streakTextView;
-    Button answer1Button;
-    Button answer2Button;
-    Button answer3Button;
+    Button firstAnswerButton;
+    Button secondAnswerButton;
+    Button thirdAnswerButton;
     ImageButton nextButton;
 
     @Override
@@ -71,28 +70,43 @@ public class GameActivity extends AppCompatActivity {
         setUpViews();
         checkConnection();
         selectList();
-        loadStreakFromSharedPrefs();
+        loadStreakFromSharedPreferences();
         bookSearch();
     }
 
 
     /**
      * Initiate
-     * Checks if there is a connection to the internet.
+     * Controls if there is network connection. Needed to play the game.
+     * @return  Returns true, if there is network connection, else false.
      */
-    public void checkConnection() {
+    public boolean checkConnection() {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 
+        // checks if there is network connection
         if (cm.getActiveNetworkInfo() == null) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("No internet connection");
-            builder.setMessage("Please connect to the internet");
-            builder.create().show();
 
-            answer1Button.setEnabled(false);
-            answer2Button.setEnabled(false);
-            answer3Button.setEnabled(false);
+            // if there is no connection disable answer button and show dialog
+            firstAnswerButton.setEnabled(false);
+            secondAnswerButton.setEnabled(false);
+            thirdAnswerButton.setEnabled(false);
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("No network connection");
+            builder.setMessage("Please connect to the internet");
+            builder.setPositiveButton("Retry", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    boolean connection = checkConnection();
+                    if (connection) {
+                        onCreate = 0;
+                        bookSearch();
+                    }
+                }
+            });
+            builder.create().show();
+            return false;
         }
+        return true;
     }
 
     /**
@@ -106,19 +120,19 @@ public class GameActivity extends AppCompatActivity {
         streakTextView = (TextView) findViewById(R.id.streakView);
         streakTextView.setText(String.valueOf(0));
 
-        answer1Button = (Button) findViewById(R.id.answer1);
-        answer1Button.setEnabled(false);
-        answer2Button = (Button) findViewById(R.id.answer2);
-        answer2Button.setEnabled(false);
-        answer3Button = (Button) findViewById(R.id.answer3);
-        answer3Button.setEnabled(false);
+        firstAnswerButton = (Button) findViewById(R.id.answerOne);
+        firstAnswerButton.setEnabled(false);
+        secondAnswerButton = (Button) findViewById(R.id.answerTwo);
+        secondAnswerButton.setEnabled(false);
+        thirdAnswerButton = (Button) findViewById(R.id.answerThree);
+        thirdAnswerButton.setEnabled(false);
         nextButton = (ImageButton) findViewById(R.id.nextButton);
     }
 
 
     /**
      * Initiate
-     * Selects the genre.
+     * Selects the genre and selects the right string to use.
      */
     public void selectList() {
         switch (genre) {
@@ -146,7 +160,10 @@ public class GameActivity extends AppCompatActivity {
      * Sends a request to the AsyncTask to find a specific book.
      */
     public void bookSearch() {
-        if (count < 3) {
+        final int maxAmountNonResponse = 3;
+
+        // if there is no correct response from the API three times, a dialog is shown
+        if (countNonResponse < maxAmountNonResponse) {
             selectedBook = titles[rand.nextInt(titles.length)];
             BookAsyncTask asyncTask = new BookAsyncTask(this);
             asyncTask.execute(selectedBook);
@@ -165,7 +182,6 @@ public class GameActivity extends AppCompatActivity {
      * @param bookInfo  Information from the API about a book.
      */
     public void handleBookInfo(String bookInfo) {
-
         checkInfo(bookInfo);
 
         try {
@@ -181,13 +197,17 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Book info
+     * Checks if the info from the API is correct
+     * @param bookInfo  Information from the API about a book.
+     */
     private void checkInfo(String bookInfo) {
-
         if (bookInfo.equals("wrong")) {
-            count++;
+            countNonResponse++;
             bookSearch();
         } else {
-            count = 0;
+            countNonResponse = 0;
         }
     }
 
@@ -197,6 +217,8 @@ public class GameActivity extends AppCompatActivity {
      * Find the right book from the responses from the API.
      */
     public void getBookPlot() {
+
+        // get all volumeInfo objects from itemsArray
         for (int i = 0; i < itemsArray.length(); i++){
             try {
                 JSONObject object = itemsArray.getJSONObject(i);
@@ -206,6 +228,7 @@ public class GameActivity extends AppCompatActivity {
             }
         }
 
+        // find the right volume from the volume array.
         for (JSONObject object : volumeObject) {
 
             titleAndAuthor = selectedBook.split(",");
@@ -221,8 +244,9 @@ public class GameActivity extends AppCompatActivity {
             if (authors != null) {
                 try {
                     if (object.getString("title").toLowerCase().
-                            equals(titleAndAuthor[0].substring(1).toLowerCase()) & authors.toString().
-                            contains(titleAndAuthor[1].substring(titleAndAuthor[1].lastIndexOf(" ")))) {
+                            equals(titleAndAuthor[0].substring(1).toLowerCase()) &
+                            authors.toString().contains(titleAndAuthor[1].
+                                    substring(titleAndAuthor[1].lastIndexOf(" ")))) {
                         try {
                             bookPlot = object.getString("description");
                         } catch (JSONException e) {
@@ -263,10 +287,12 @@ public class GameActivity extends AppCompatActivity {
     }
 
     /**
-     * Book info/Next
+     * Book info & Next
      * Sets up the next question.
      */
     public void setupNext() {
+
+        // if activity is in onCreate, show items, else make next button visible.
         if (onCreate == 0) {
             setToViews();
             onCreate = 1;
@@ -285,14 +311,14 @@ public class GameActivity extends AppCompatActivity {
      */
     public void onAnswerClicked(View view) {
         switch (view.getId()) {
-            case R.id.answer1:
-                chosenAnswer = answer1Button.getText().toString();
+            case R.id.answerOne:
+                chosenAnswer = firstAnswerButton.getText().toString();
                 break;
-            case R.id.answer2:
-                chosenAnswer = answer2Button.getText().toString();
+            case R.id.answerTwo:
+                chosenAnswer = secondAnswerButton.getText().toString();
                 break;
-            case R.id.answer3:
-                chosenAnswer = answer3Button.getText().toString();
+            case R.id.answerThree:
+                chosenAnswer = thirdAnswerButton.getText().toString();
                 break;
             default:
                 throw new RuntimeException("Unknown button ID");
@@ -315,8 +341,9 @@ public class GameActivity extends AppCompatActivity {
             streak = 0;
         }
 
-        SharedPreferences prefs = this.getSharedPreferences("streaks", MODE_PRIVATE);
-        SharedPreferences.Editor editor = prefs.edit();
+        // save current streak to shared preferences
+        SharedPreferences preferences = this.getSharedPreferences("streaks", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
         editor.putInt("streak", streak);
         editor.apply();
         streakTextView.setText(String.valueOf(streak));
@@ -328,20 +355,21 @@ public class GameActivity extends AppCompatActivity {
      * Checks the streak against the current high scores and save these to shared preferences.
      */
     public void checkHighScores() {
-        loadHighScoreFromSharedPrefs();
+        loadHighScoreFromSharedPreferences();
 
-        SharedPreferences prefs = this.getSharedPreferences("highScores", MODE_PRIVATE);
-        SharedPreferences.Editor editor = prefs.edit();
+        SharedPreferences preferences = this.getSharedPreferences("highScores", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
 
-        if (first < streak) {
-            editor.putInt("second", first);
-            editor.putInt("third", second);
-            editor.putInt("first", streak);
-        } else if (second < streak) {
-            editor.putInt("third", second);
-            editor.putInt("second", streak);
-        } else if (third < streak) {
-            editor.putInt("third",streak);
+        // changes high scores in shared preferences if needed
+        if (firstScore < streak) {
+            editor.putInt("secondScore", firstScore);
+            editor.putInt("thirdScore", secondScore);
+            editor.putInt("firstScore", streak);
+        } else if (secondScore < streak) {
+            editor.putInt("thirdScore", secondScore);
+            editor.putInt("secondScore", streak);
+        } else if (thirdScore < streak) {
+            editor.putInt("thirdScore",streak);
         }
 
         editor.apply();
@@ -355,19 +383,21 @@ public class GameActivity extends AppCompatActivity {
     public void changeButtons() {
         int rightColor = ContextCompat.getColor(this, R.color.rightButton);
 
-        // change background color of button with right answer.
-        if (answer1Button.getText().equals(rightAnswer)) {
-            answer1Button.setBackgroundColor(rightColor);
-        } else if (answer2Button.getText().equals(rightAnswer)) {
-            answer2Button.setBackgroundColor(rightColor);
+        // change background color of button with right answer
+        if (firstAnswerButton.getText().equals(rightAnswer)) {
+            firstAnswerButton.setBackgroundColor(rightColor);
+        } else if (secondAnswerButton.getText().equals(rightAnswer)) {
+            secondAnswerButton.setBackgroundColor(rightColor);
         } else {
-            answer3Button.setBackgroundColor(rightColor);
+            thirdAnswerButton.setBackgroundColor(rightColor);
         }
 
-        answer1Button.setEnabled(false);
-        answer2Button.setEnabled(false);
-        answer3Button.setEnabled(false);
+        // disable buttons after an answer is chosen
+        firstAnswerButton.setEnabled(false);
+        secondAnswerButton.setEnabled(false);
+        thirdAnswerButton.setEnabled(false);
 
+        // enable next button if answer is chosen and available
         if (nextButton.getVisibility() == View.VISIBLE) {
             nextButton.setEnabled(true);
         }
@@ -379,7 +409,6 @@ public class GameActivity extends AppCompatActivity {
      * Takes care of a new question.
      * @param view The next button.
      */
-
     public void onNextClicked(View view) {
         setToViews();
         checkConnection();
@@ -397,18 +426,19 @@ public class GameActivity extends AppCompatActivity {
 
         int n = rand.nextInt(3);
 
+        // assigns the right answer to a random button
         if (n == 0) {
-            answer1Button.setText(wrong1);
-            answer2Button.setText(wrong2);
-            answer3Button.setText(selectedBook);
+            firstAnswerButton.setText(wrongAnswerOne);
+            secondAnswerButton.setText(wrongAnswerTwo);
+            thirdAnswerButton.setText(selectedBook);
         } else if (n == 1) {
-            answer1Button.setText(wrong1);
-            answer2Button.setText(selectedBook);
-            answer3Button.setText(wrong2);
+            firstAnswerButton.setText(wrongAnswerOne);
+            secondAnswerButton.setText(selectedBook);
+            thirdAnswerButton.setText(wrongAnswerTwo);
         } else {
-            answer1Button.setText(selectedBook);
-            answer2Button.setText(wrong2);
-            answer3Button.setText(wrong1);
+            firstAnswerButton.setText(selectedBook);
+            secondAnswerButton.setText(wrongAnswerTwo);
+            thirdAnswerButton.setText(wrongAnswerOne);
         }
 
         nextSearch();
@@ -423,14 +453,14 @@ public class GameActivity extends AppCompatActivity {
         int backgroundColor = ContextCompat.getColor(this, R.color.backgroundButton);
 
         nextButton.setVisibility(View.INVISIBLE);
-        answer1Button.setBackgroundColor(backgroundColor);
-        answer2Button.setBackgroundColor(backgroundColor);
-        answer3Button.setBackgroundColor(backgroundColor);
+        firstAnswerButton.setBackgroundColor(backgroundColor);
+        secondAnswerButton.setBackgroundColor(backgroundColor);
+        thirdAnswerButton.setBackgroundColor(backgroundColor);
 
         plotTextView.scrollTo(0, 0);
-        answer1Button.setEnabled(true);
-        answer2Button.setEnabled(true);
-        answer3Button.setEnabled(true);
+        firstAnswerButton.setEnabled(true);
+        secondAnswerButton.setEnabled(true);
+        thirdAnswerButton.setEnabled(true);
     }
 
 
@@ -439,22 +469,23 @@ public class GameActivity extends AppCompatActivity {
      * Assert wrong titles.
      */
     public void assertWrong() {
-        wrong1 = titles[rand.nextInt(titles.length)];
-        wrong2 = titles[rand.nextInt(titles.length)];
+        wrongAnswerOne = titles[rand.nextInt(titles.length)];
+        wrongAnswerTwo = titles[rand.nextInt(titles.length)];
 
-        while (wrong1.equals(selectedBook)) {
-            wrong1 = titles[rand.nextInt(titles.length)];
+        // while a wrong item equals the right answer, replace it
+        while (wrongAnswerOne.equals(selectedBook)) {
+            wrongAnswerOne = titles[rand.nextInt(titles.length)];
         }
 
-        while (wrong2.equals(selectedBook)) {
-            wrong2 = titles[rand.nextInt(titles.length)];
+        while (wrongAnswerTwo.equals(selectedBook)) {
+            wrongAnswerTwo = titles[rand.nextInt(titles.length)];
         }
     }
 
 
     /**
      * Next
-     * Initiates next search.
+     * Initiates next search as soon as next button is clicked.
      */
     public void nextSearch() {
         rightAnswer = selectedBook;
@@ -466,22 +497,22 @@ public class GameActivity extends AppCompatActivity {
 
     /**
      * Shared Preferences
-     * Loads the high scores from shared preferences.
+     * Loads all the high scores from shared preferences, if there is none, default is zero.
      */
-    public void loadHighScoreFromSharedPrefs() {
+    public void loadHighScoreFromSharedPreferences() {
         SharedPreferences prefs = this.getSharedPreferences("highScores", MODE_PRIVATE);
 
-        first = prefs.getInt("first", 0);
-        second = prefs.getInt("second", 0);
-        third = prefs.getInt("third",0);
+        firstScore = prefs.getInt("firstScore", 0);
+        secondScore = prefs.getInt("secondScore", 0);
+        thirdScore = prefs.getInt("thirdScore",0);
     }
 
 
     /**
      * Shared preferences
-     * Loads streak from shared preferences.
+     * Loads current streak from the shared preferences, default is zero.
      */
-    public void loadStreakFromSharedPrefs() {
+    public void loadStreakFromSharedPreferences() {
         SharedPreferences prefs = this.getSharedPreferences("streaks", MODE_PRIVATE);
 
         streak = prefs.getInt("streak", 0);
@@ -503,6 +534,7 @@ public class GameActivity extends AppCompatActivity {
         return true;
     }
 
+    
     /**
      * Menu
      * Implements functionality of high score button.
@@ -511,11 +543,11 @@ public class GameActivity extends AppCompatActivity {
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        loadHighScoreFromSharedPrefs();
+        loadHighScoreFromSharedPreferences();
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("High Score");
-        builder.setMessage("1.\t" + first + "\n2.\t" + second + "\n3.\t" + third);
+        builder.setMessage("1.\t" + firstScore + "\n2.\t" + secondScore + "\n3.\t" + thirdScore);
         builder.setPositiveButton("Back", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
             }

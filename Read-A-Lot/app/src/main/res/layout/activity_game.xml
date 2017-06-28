@@ -20,7 +20,7 @@
         android:id="@+id/linearLayout2">
 
         <Button
-            android:id="@+id/answer1"
+            android:id="@+id/answerOne"
             style="@style/Widget.AppCompat.ButtonBar"
             android:layout_width="match_parent"
             android:layout_height="48dp"
@@ -31,7 +31,7 @@
             tools:layout_editor_absoluteY="58dp" />
 
         <Button
-            android:id="@+id/answer3"
+            android:id="@+id/answerThree"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:background="@color/backgroundButton"
@@ -41,7 +41,7 @@
             tools:layout_editor_absoluteY="247dp" />
 
         <Button
-            android:id="@+id/answer2"
+            android:id="@+id/answerTwo"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:background="@color/backgroundButton"

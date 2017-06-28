@@ -1,7 +1,6 @@
 /*
  * Handles the AsyncTask to get the book information.
- * Created by Julia Anten
- * Open source
+ * Copyright © 2017 Julia Anten. All rights reserved.
  */
 package com.example.julia.read_a_lot;
 
@@ -14,10 +13,6 @@ class BookAsyncTask extends AsyncTask<String, Void, String> {
     BookAsyncTask(GameActivity game){
         this.gameAct = game;
     }
-
-
-    @Override
-    protected void onPreExecute() {}
 
 
     @Override
