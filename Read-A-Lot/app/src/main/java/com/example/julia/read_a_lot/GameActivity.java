@@ -107,8 +107,11 @@ public class GameActivity extends AppCompatActivity {
         streakTextView.setText(String.valueOf(0));
 
         answer1Button = (Button) findViewById(R.id.answer1);
+        answer1Button.setEnabled(false);
         answer2Button = (Button) findViewById(R.id.answer2);
+        answer2Button.setEnabled(false);
         answer3Button = (Button) findViewById(R.id.answer3);
+        answer3Button.setEnabled(false);
         nextButton = (ImageButton) findViewById(R.id.nextButton);
     }
 
