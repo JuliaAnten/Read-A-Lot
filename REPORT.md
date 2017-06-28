@@ -10,8 +10,7 @@ Minor Programmeren UvA
 
 In this game you are supposed to guess the book title after reading the book plot. You can start immediately with the best sold books of all times, or you can choose a genre (horror, mystery, sci-fi or romance). See how far you can get by improving your streak.
 
-<sub>Text continues after images</sub> <br>
-<img src="doc/screenshotFinalApp.png" alt="screenshot" width="200"> <br>
+<img src="doc/screenshotFinalApp.png" alt="screenshot" width="400"> <br>
 <sub>GameActivity</sub>
 
 ### Technical Design 
