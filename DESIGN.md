@@ -43,6 +43,8 @@ I will use the Google Books API to get information about... books (surprise).
 <https://developers.google.com/books/>
 
 ### Screenshots from app design
+<sub>No longer completely actual</sub>
+
 ![start](doc/startActivity.png)
 ![genre](doc/genreActivity.png)
 ![game](doc/gameActivity.png)

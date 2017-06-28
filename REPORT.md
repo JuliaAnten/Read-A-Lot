@@ -1,5 +1,12 @@
 ![logo](doc/textLogo.png)
-# Report
+Let's guess the book title! <br>
+
+
+Julia Anten<br>
+Programmeerproject<br>
+Minor Programmeren UvA
+
+## Report
 
 In this game you are supposed to guess the book title after reading the book plot. You can start immediately with the best sold books of all times, or you can choose a genre (horror, mystery, sci-fi or romance). See how far you can get by improving your streak.
 
@@ -7,7 +14,7 @@ In this game you are supposed to guess the book title after reading the book plo
 ![screenshot](doc/screenshotFinalApp.png)
 <sub>GameActivity</sub>
 
-## Technical Design 
+### Technical Design 
 The app exists of three activities, an AsyncTask and a HTTPRequestHelper. <br>
 #### BookAsyncTask
 The AsyncTask sends a request to the HttpRequestHelper and returns the book info to the game activity.
@@ -53,13 +60,18 @@ Shared preferences: In this categories are functions who save and load the strea
 
 Menu: These functions handle the high score button in the action bar.
 
-## Changes and challenges during process
+### Changes and challenges during process
 
 #### Changed request to the API
 One of the biggest changes I made was how I requested book plots from the API. First, I was planning to request random books from the API and use them for the game. It only turned out none of the API I read about was able to do this. They all needed some sort of search key. So I decided to add a list of books to the app and request books from that list to the API. One limitation is that there are now less books in the game, which means that people can actually tire of it, since they know all the books. Preferable I would have chosen another solution, but given the time I had I feel like this is the option possible. It would be very nice if the list with books was way bigger.
 
 #### Added genres
 After the app worked completely I added more lists with books in different genres, I added [horror](https://www.librarything.com/bookaward/Horror%3A+The+100+Best+Books), [mystery](https://www.librarything.com/bookaward/H.R.F.+Keating%27s+100+Best+Crime+%2526+Mystery+Books), [romance](https://www.goodreads.com/list/show/84922.Top_100_Romance_Novels_on_Goodreads) and [sci-fi](https://www.librarything.com/bookaward/David+Pringle%27s+Best+100+Science+Fiction+Novels). It turned out to be pretty easy to add these genres, since it was just added different lists of books to the app. It gives users something extra when they tire of the initial game or don't know the books there. 
+
+
+<br><br><br><br>
+Logo from [rbmm](http://rbmm.com/work/galahad-books-logo/)
+
 
 
 

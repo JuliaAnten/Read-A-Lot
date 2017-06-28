@@ -28,7 +28,7 @@ I couldn't really find an app that does the same, but there are some sites. Like
 The start screen and the game screen would be part of the minimum viable product. The high scores could be left out. Other optionals idea's are making different difficulties or switching the idea around, giving a title and let users guess the plot. Another idea would be to incorporate different genres that users could play the game in. This could also be done with years. Maybe also against your friends. Or a link to the book to buy online or read more about the book if anybody wants.
 
 ### User interface*
-![Schets](doc/Sketches.jpg)
-*See design document for updated sketches.
+![Sketch](doc/sketches.jpg)
+<sub>*See design document for updated sketches.</sub>
 <br><br><br><br>
 Logo from [rbmm](http://rbmm.com/work/galahad-books-logo/)

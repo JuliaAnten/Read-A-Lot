@@ -3,13 +3,13 @@
     <string name="explanation">The goal is to guess as many book titles as you can after reading the book plot. You can start immediately or choose a genre</string>
     <string name="go">Go!</string>
     <string name="logo">Shows the logo</string>
-    <string name="highscore">High Score</string>
+    <string name="high_score">High Score</string>
     <string name="genre">Pick Genre</string>
     <string name="horror">Horror</string>
     <string name="mystery">Mystery</string>
     <string name="scifi">Sci-Fi</string>
     <string name="romance">Romance</string>
-    <string name="booktitles">A Tale of Two Cities, Charles Dickens= Fellowship of the ring,  J.R.R. Tolkien=
+    <string name="book_titles">A Tale of Two Cities, Charles Dickens= Fellowship of the ring,  J.R.R. Tolkien=
         The two towers,  J.R.R. Tolkien= The return of the king,  J.R.R. Tolkien=
         The Little Prince,  Antoine de Saint-Exupéry= The Hobbit,  J.R.R. Tolkien=
         The Dream of the Red Chamber,  Cao Xueqin= And Then There Were None, Agatha Christie=
@@ -50,7 +50,7 @@
         The Divine Comedy,  Dante Alighieri= Things Fall Apart,  Chinua Achebe= The Exorcist,  William Peter Blatty=
         The Gruffalo,  Julia Donaldson= Catch-22,  Joseph Heller= Eye of the Needle,  Ken Follett
     </string>
-    <string name="booktitlesHorror"> All Heads Turn When the Hunt Goes By, John Farris=
+    <string name="book_titles_horror"> All Heads Turn When the Hunt Goes By, John Farris=
         All Heads Turn When the Hunt Goes By, John Farris= I Am Legend, Richard Matheson=
         And the Darkness Falls, Boris Karloff= The Anubis Gates, Tim Powers= The Arabian Nightmare, Robert Irwin=
         The Black Spider, Jeremias Gotthelf= Burnt Offerings, Robert Marasco=
@@ -91,7 +91,7 @@
         The Werewolf of Paris, Guy Endore= The White Devil, John Webster= Who Made Stevie Crye?, Michael Bishop=
         Widdershins, Oliver Onions= The Wolfen, Whitley Strieber= Worse Things Waiting, Manly Wade Wellman=
     </string>
-    <string name="booktitlesMystery"> Tales of Mystery and Imagination, Edgar Allan Poe=
+    <string name="book_titles_mystery"> Tales of Mystery and Imagination, Edgar Allan Poe=
         The Moonstone, Wilkie Collins= The Mystery of Edwin Drood, Charles Dickens=
         The Adventures of Sherlock Holmes, Sir Arthur Conan Doyle= Raffles: The Amateur Cracksman, E. W. Hornung=
         The Hound of the Baskervilles, Sir Arthur Conan Doyle= The Circular Staircase, Mary Roberts Rinehart=
@@ -131,7 +131,7 @@
         The Glitter Dome, Joseph Wambaugh= To Make a Killing, June Thomson= The False Inspector Dew, Peter Lovesey=
         The Artful Egg, James McClure= A Taste for Death, P. D. James=
     </string>
-    <string name="booktitlesSciFi"> 1984, George Orwell= Earth Abides, George R. Stewart=
+    <string name="book_titles_sciFi"> 1984, George Orwell= Earth Abides, George R. Stewart=
         The Martian Chronicles, Ray Bradbury= The Puppet Masters, Robert A. Heinlein=
         The Day of the Triffids, John Wyndham= Limbo, Bernard Wolfe= The Demolished Man, Alfred Bester=
         Fahrenheit 451, Ray Bradbury= Childhood’s End, Arthur C. Clarke= The Paradox Men, Charles L. Harness=
@@ -167,7 +167,7 @@
         The Unreasoning Mask, Philip José Farmer= Oath of Fealty, Larry Niven= No Enemy But Time, Michael Bishop=
         Neuromancer, William Gibson
     </string>
-    <string name="booktitlesRomance"> Fifty Shades of Grey , E.L. James= Beautiful Disaster, Jamie McGuire=
+    <string name="book_titles_romance"> Fifty Shades of Grey , E.L. James= Beautiful Disaster, Jamie McGuire=
         Pride and Prejudice, Jane Austen= Twilight, Stephenie Meyer= Perfect Chemistry, Simone Elkeles=
         The Notebook, Nicholas= Thoughtless , S.C.= Bared to You, Sylvia Day= Outlander, Diana Gabaldon=
         Jane Eyre, Charlotte Brontë= Easy, Tammara Webber= Gabriel\’s Inferno, Sylvain Reynard=

@@ -137,19 +137,19 @@ public class GameActivity extends AppCompatActivity {
     public void selectList() {
         switch (genre) {
             case "horror":
-                titles = getResources().getText(R.string.booktitlesHorror).toString().split("=");
+                titles = getResources().getText(R.string.book_titles_horror).toString().split("=");
                 break;
             case "mystery":
-                titles = getResources().getText(R.string.booktitlesMystery).toString().split("=");
+                titles = getResources().getText(R.string.book_titles_mystery).toString().split("=");
                 break;
             case "romance":
-                titles = getResources().getText(R.string.booktitlesRomance).toString().split("=");
+                titles = getResources().getText(R.string.book_titles_romance).toString().split("=");
                 break;
             case "scifi":
-                titles = getResources().getText(R.string.booktitlesSciFi).toString().split("=");
+                titles = getResources().getText(R.string.book_titles_sciFi).toString().split("=");
                 break;
             default:
-                titles = getResources().getText(R.string.booktitles).toString().split("=");
+                titles = getResources().getText(R.string.book_titles).toString().split("=");
                 break;
         }
     }

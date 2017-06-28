@@ -115,3 +115,8 @@ Make sure answer buttons can only be pressed once
 # Day 17 - 28 june
 - Implemented things from standup
 - Started with report and cleaning up repo.
+
+
+
+<br><br><br><br>
+Logo from [rbmm](http://rbmm.com/work/galahad-books-logo/)
