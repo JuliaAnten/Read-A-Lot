@@ -109,3 +109,9 @@ Make sure answer buttons can only be pressed once
 - Cleaned up code
 - Added fail safe for wrong response codes
 - Updated javadoc strings
+- Fixed bugs
+
+
+# Day 17 - 28 june
+- Implemented things from standup
+- Started with report and cleaning up repo.

@@ -76,7 +76,7 @@ public class GameActivity extends AppCompatActivity {
 
 
     /**
-     * Initiate
+     * Initiate & Next
      * Controls if there is network connection. Needed to play the game.
      * @return  Returns true, if there is network connection, else false.
      */
@@ -341,12 +341,7 @@ public class GameActivity extends AppCompatActivity {
             streak = 0;
         }
 
-        // save current streak to shared preferences
-        SharedPreferences preferences = this.getSharedPreferences("streaks", MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putInt("streak", streak);
-        editor.apply();
-        streakTextView.setText(String.valueOf(streak));
+        saveStreakToSharedPreferences();
     }
 
 
@@ -496,7 +491,20 @@ public class GameActivity extends AppCompatActivity {
 
 
     /**
-     * Shared Preferences
+     * Shared preferences
+     * Saves the current streak to the shared preferences after an answer is chosen.
+     */
+    private void saveStreakToSharedPreferences() {
+        SharedPreferences preferences = this.getSharedPreferences("streaks", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putInt("streak", streak);
+        editor.apply();
+        streakTextView.setText(String.valueOf(streak));
+    }
+
+
+    /**
+     * Shared preferences
      * Loads all the high scores from shared preferences, if there is none, default is zero.
      */
     public void loadHighScoreFromSharedPreferences() {
@@ -534,7 +542,7 @@ public class GameActivity extends AppCompatActivity {
         return true;
     }
 
-    
+
     /**
      * Menu
      * Implements functionality of high score button.
