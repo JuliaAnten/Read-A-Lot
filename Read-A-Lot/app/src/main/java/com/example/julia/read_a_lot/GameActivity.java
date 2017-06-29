@@ -109,6 +109,7 @@ public class GameActivity extends AppCompatActivity {
         return true;
     }
 
+
     /**
      * Initiate
      * Sets up the text views and buttons.
@@ -172,7 +173,6 @@ public class GameActivity extends AppCompatActivity {
             builder.setMessage("No book plots available. Please try again later.");
             builder.create().show();
         }
-
     }
 
 
@@ -196,6 +196,7 @@ public class GameActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
 
     /**
      * Book info
@@ -286,13 +287,14 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
+
     /**
      * Book info & Next
      * Sets up the next question.
      */
     public void setupNext() {
 
-        // if activity is in onCreate, show items, else make next button visible.
+        // if activity is in onCreate, show items, else make next button visible
         if (onCreate == 0) {
             setToViews();
             onCreate = 1;
@@ -303,6 +305,7 @@ public class GameActivity extends AppCompatActivity {
             }
         }
     }
+
 
     /**
      * Answers

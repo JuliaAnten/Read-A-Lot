@@ -17,7 +17,12 @@ Minor Programmeren UvA
 
 <sub>For the proposal see PROPOSAL.md</sub>
 
+## Sources
 Logo from [rbmm](http://rbmm.com/work/galahad-books-logo/)<br>
-<br>Copyright © 2017 Julia Anten. All rights reserved.
-<br>
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+App background from [belinspired.blogspot.nl](http://belinspired.blogspot.nl/2015/09/iphone-wallpaper-backgrounds-free.html)<br>
+Next button from [thenounproject.com](https://thenounproject.com/term/next-button/18953/) under  Creative Commons<br>
+High score button from [freeiconspng.com](http://www.freeiconspng.com/img/38586)
+
+<br><br>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.<br>
+<br>Copyright © 2017 Julia Anten.

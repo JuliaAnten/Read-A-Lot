@@ -20,6 +20,7 @@ public class GenreActivity extends AppCompatActivity {
         setContentView(R.layout.activity_genre);
     }
 
+
     /**
      * Checks which genre button is clicked.
      * @param view The four genre buttons.

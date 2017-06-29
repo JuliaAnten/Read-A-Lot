@@ -14,12 +14,10 @@ class BookAsyncTask extends AsyncTask<String, Void, String> {
         this.gameAct = game;
     }
 
-
     @Override
     protected String doInBackground(String... params) {
         return HttpRequestHelper.downloadFromServer(params);
     }
-
 
     @Override
     protected void onPostExecute(String bookInfo) {
