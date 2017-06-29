@@ -32,3 +32,5 @@ The start screen and the game screen would be part of the minimum viable product
 <sub>*See design document for updated sketches.</sub>
 <br><br><br><br>
 Logo from [rbmm](http://rbmm.com/work/galahad-books-logo/)
+<br><br>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
