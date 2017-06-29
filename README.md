@@ -11,9 +11,9 @@ Minor Programmeren UvA
 
 ## Screenshots
 
-<img src="doc/screenshotFinalStart.png" alt="screenshotStart" width="400"> 
-<img src="doc/screenshotFinalGenre.png" alt="screenshotGenre" width="400">
-<img src="doc/screenshotFinalGame.png" alt="screenshotGame" width="400">
+<img src="doc/screenshotFinalStart.png" alt="screenshotStart" width="300"> 
+<img src="doc/screenshotFinalGenre.png" alt="screenshotGenre" width="300">
+<img src="doc/screenshotFinalGame.png" alt="screenshotGame" width="300">
 <br>
 <sup>Start screen, genre choose screen & game screen</sup>
 
